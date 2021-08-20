@@ -1,0 +1,136 @@
+/* stylelint-disable */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+fieldset[class*="disabled"],
+fieldset[disabled],
+button[disabled],
+button[class*='disabled'] {
+  user-select: none;
+}
+
+body {
+  margin: 0;
+    
+}
+
+address {
+  font-style: normal;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  flex-shrink: 0;
+  margin: 0;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+input {
+  &:read-only {
+    pointer-events: none;
+  }
+}
+
+button,
+input,
+textarea,
+fieldset {
+  font-family: inherit;
+}
+
+input {
+  min-width: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  appearance: none;
+  border: none;
+}
+
+input, textarea {
+  padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+fieldset[disabled] {
+  pointer-events: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+  -webkit-appearance: none;
+}
+
+ul, ol, dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p, input {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}

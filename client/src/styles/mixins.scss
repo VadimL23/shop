@@ -1,0 +1,21 @@
+@mixin text {
+    text-transform: uppercase;
+    color: $color-text;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin psevdo {
+    content: "";
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+@mixin shadow {
+    box-shadow: 0px 0px 2px 1px $color-highlight;
+}

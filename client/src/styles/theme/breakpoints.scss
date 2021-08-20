@@ -1,0 +1,75 @@
+//stylelint-disable
+
+/**
+  breakpoints values based on:
+  https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+
+  breakpoints naming based on:
+  http://alexbea.com/blog/ergonomic-breakpoint-variables/
+**/
+
+$phone: 470px;
+$hands: 768px;
+$lap: 1280px;
+$desk: 1440px;
+
+
+@mixin phone {
+    @media (max-width: $phone) {
+        @content;
+    }
+}
+
+@mixin lap {
+    @media (max-width: $lap) {
+        @content;
+    }
+}
+
+@mixin desk {
+    @media (max-width: $desk) {
+        @content;
+    }
+}
+
+@mixin to-desk {
+    @media (max-width: $desk - 1) {
+        @content;
+    }
+}
+
+@mixin to-hands {
+    @media (max-width: $hands - 1) {
+        @content;
+    }
+}
+
+@mixin hands {
+    @media (max-width: $hands) {
+        @content;
+    }
+}
+
+@mixin hands-landscape {
+    @media (min-width: $hands) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin to-lap {
+    @media (max-width: $lap - 1) {
+        @content;
+    }
+}
+
+@mixin from-hands-to-lap {
+    @media (min-width: $hands) and (max-width: $lap - 1) {
+        @content;
+    }
+}
+
+@mixin from-hands-to-desk {
+    @media (min-width: $hands) and (max-width: $desk - 1) {
+        @content;
+    }
+}
