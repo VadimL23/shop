@@ -1,6 +1,7 @@
 {
     "compilerOptions":{
-        "baseUrl":"."
+           "experimentalDecorators": true
     },
-    "include":["server","client"]
+    "include":[  "./**/*"],
+    "exclude": ["node_modules"]
 }
