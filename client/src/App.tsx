@@ -13,12 +13,12 @@ const routes = useRoutes(isAuthenticated);
 
   return (
     <Router >
-        <React.Fragment>
+        <div className="container">
             <Navbar isAuthenticated={isAuthenticated}/>
            
              {routes}
             
-        </React.Fragment>
+        </div>
       </Router>
   );
 });

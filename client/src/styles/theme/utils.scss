@@ -1,3 +1,5 @@
+@import "./breakpoints";
+
 .w-100 {
     width: 100%;
 }
@@ -7,9 +9,22 @@
 }
 
 .container {
-    max-width: 1170px !important;
+    max-width: 1200px !important;
     display: block;
     margin: 0 auto;
     padding: 0 15px;
-
+    
+    @include hands{
+        &{
+        max-width: 640px !important;
+        padding: 0 10px;
+        }
+    }
+    
+     @include phone{
+         &{
+         max-width: 540px !important;
+         padding: 0 5px;
+         }
+    }
 }
