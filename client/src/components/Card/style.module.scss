@@ -12,6 +12,7 @@
     box-shadow: 0 0 .5rem rgba(#ccc,.6);
     padding: 1rem;
     transition:all .2s ease-in-out;
+    margin: 0 10px;
     
     &:hover{
      box-shadow: 0 0 .8rem rgba(#333,.9);   
@@ -24,6 +25,11 @@
       
     }
     
+    @inlude hands{
+        &{
+    margin:0 auto;
+    }
+    }
     
 }
 
@@ -78,3 +84,24 @@
     }
 }
 
+.btn{
+    width:80%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 23px;
+    margin-bottom: 23px;
+    color:white;
+    font-size: 2rem;
+    padding: .8rem;
+    border-radius: $border-radius;
+ }
+
+    .btn__order{
+   
+    transition: all .3s ease-in-out;
+    background-color: lighten($btn_order-color,13%);  
+       
+    &:hover{
+       box-shadow:  0 0 .8rem rgba(darken($btn_order-color,13%),.5)!important; 
+        }
+}

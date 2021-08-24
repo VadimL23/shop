@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import s from "./style.module.scss";
 import cn from "classnames";
 import path from "path";
-import sliderList from "../../config/constants/slider";
+import sliderList from "config/constants/slider";
 import "./style.scss";
 
 interface IProps {
