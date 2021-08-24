@@ -10,9 +10,9 @@ const Navbar = (props:IProps) =>{
  
  return ( 
   <nav>
-    <div className={cn(s.nav)}>
+    <div className={cn(s.nav, s.contain)}>
       <a href="/" className="">Logo shop</a>
-      <ul className={cn(s["nav__links"])}>
+      <ul className={cn(s.nav__links)}>
         <li><a href = "#">Home</a></li>
         <li><a href = "#">About</a></li>
       </ul>
