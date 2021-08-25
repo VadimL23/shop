@@ -1,11 +1,12 @@
 import React from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
-import {Card, cardData} from "components/Card"
+import {Card, cardData} from "components/Card";
 import {MainSlider} from "components/MainSlider";
 import {ProductsSlider} from "components/ProductsSlider";
 import cardList from "config/constants/card";
-import sliderList from "config/constants/slider"
+import sliderList from "config/constants/slider";
+import {useStore} from "hooks";
 
 interface IProps {
     className?: string  
@@ -14,8 +15,8 @@ interface IProps {
 
 const MainPage = (props:IProps) =>{
    const {className} = props; 
-
-    
+   const store = useStore();
+    console.log(store.isAuntificated);
     
     return (
        <>
@@ -25,7 +26,13 @@ const MainPage = (props:IProps) =>{
           sliderList={sliderList}
          />
         
-        <ProductsSlider productList = {cardList}/>
+        <ProductsSlider productList = {cardList}>
+        Новинки
+        </ProductsSlider>
+        
+         <ProductsSlider productList = {cardList}>
+        Популярные товары
+        </ProductsSlider>
         
       </>
     )
