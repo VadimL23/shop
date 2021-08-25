@@ -2,7 +2,7 @@ import {types} from "mobx-state-tree";
 
 const RootStore = types.model(
 "mainStore",{
-    isAuntificated:types.optional(types.boolean,false),
+    isAuthenticated:types.optional(types.boolean,false),
  }
 );
 

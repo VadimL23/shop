@@ -1,0 +1,30 @@
+.page{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:2rem;
+}
+
+.panel__content{
+    grid-column:1 /2 ;
+    grid-row:1;  
+    border:1px solid red;
+}
+
+.page__content{
+  grid-column:2 / 3;
+  grid-row:1;  
+border:1px dotted green;
+}
+
+
+
+
+.panel__li{
+    font-size: 2rem!important;
+    margin-top: 1.5rem;
+    }
+
+.page__content{
+  grid-column: 2 / 4;
+  grid-row:1;  
+}

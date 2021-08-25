@@ -1,0 +1,93 @@
+@import "styles/style.scss";
+
+.auth__form_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    max-width: 600px;
+    padding: 1.5rem 3.5rem;
+    margin:0 auto;
+    border:1px solid $color-border-form;
+    border-radius: $border-radius;
+    box-shadow:$form-box-shadow;
+    margin-top: calc(50vh - 250px);
+}
+
+.form__title{
+    font-size: 3rem;
+    font-color: $color-titles;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.auth__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    
+   
+    
+}
+
+.auth__box{
+    font-size: 2rem;
+    margin-top: 1.3rem;
+    text-align: center;
+   
+     
+    
+}
+
+.auth__link {
+         color: lighten($color-auth-link,13%);
+         transition: color .1s ease-in-out;
+    
+    &:hover{
+       text-decoration: underline;
+       color: lighten($color-auth-link,0);     
+        
+    }  
+        } 
+
+.auth__input{
+    
+    
+    padding: 10px 13px;
+    border:1px solid $border-color-input;
+    outline: none;
+    display: inline-block;
+    font-size: 2.3rem;
+    border-radius: $border-radius;
+    margin-top: 3rem;
+    width:auto;
+    
+    &::placeholder{
+        font-size: 1.6rem;
+        color:$color-input-placeholder;
+        
+    }
+}
+
+.btn__box{
+    text-align: center;
+}
+
+.auth__btn{
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border-radius: $border-radius;
+    font-size: $btn-font-size;
+    transition:all .3s ease-in-out;
+    align-self:center;
+    
+    
+    &:hover{
+        background-color:darken(lightblue,13%);
+    }
+    
+    &--primary{
+        background-color: $btn-primary;
+    }
+}
