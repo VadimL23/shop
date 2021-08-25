@@ -12,7 +12,7 @@
     box-shadow: 0 0 .5rem rgba(#ccc,.6);
     padding: 1rem;
     transition:all .2s ease-in-out;
-    margin: 0 10px;
+    margin: 10px 10px;
     
     &:hover{
      box-shadow: 0 0 .8rem rgba(#333,.9);   
@@ -26,6 +26,12 @@
     }
     
     @inlude hands{
+        &{
+    margin:30px auto;
+    
+    }
+    }
+    @inlude phone{
         &{
     margin:0 auto;
     }

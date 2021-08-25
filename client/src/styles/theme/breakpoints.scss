@@ -27,7 +27,7 @@ $desk: 1440px;
 }
 
 @mixin desk {
-    @media (max-width: $desk) {
+    @media (max-width: $desk) and (min-width: 470px) {
         @content;
     }
 }
