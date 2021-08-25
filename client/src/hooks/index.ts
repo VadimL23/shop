@@ -1,2 +1,1 @@
-export * from "./useStore.hook.ts";
-
+export * from "./useStore.hook";

@@ -7,16 +7,17 @@ import {ProductsSlider} from "components/ProductsSlider";
 import cardList from "config/constants/card";
 import sliderList from "config/constants/slider";
 import {useStore} from "hooks";
+import {observer} from "mobx-react-lite";
 
 interface IProps {
     className?: string  
 }
 
 
-const MainPage = (props:IProps) =>{
+const MainPage = observer((props:IProps) =>{
    const {className} = props; 
-   const store = useStore();
-    console.log(store.isAuntificated);
+   const {isAuthenticated} = useStore();
+  
     
     return (
        <>
@@ -37,7 +38,7 @@ const MainPage = (props:IProps) =>{
       </>
     )
     
-}
+});
 
 
 export {  

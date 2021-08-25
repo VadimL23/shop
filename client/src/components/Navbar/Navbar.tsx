@@ -7,7 +7,9 @@ interface IProps {
 }
 
 const Navbar = (props:IProps) =>{
- 
+
+    
+    
  return ( 
   <nav>
     <div className={cn(s.nav, s.contain)}>
