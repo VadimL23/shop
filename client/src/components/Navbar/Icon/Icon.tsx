@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
+import "./img/cart.svg";
+
 
 interface IProps {
   url: string;

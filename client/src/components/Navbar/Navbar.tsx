@@ -3,6 +3,10 @@ import s from "./style.module.scss";
 import cn from "classnames";
 import {Avatar} from "components/Navbar/Avatar";
 import {Icon} from "components/Navbar/Icon";
+import  cart from "./Icon/img/cart.svg";
+import log_out from "./Icon/img/log_out.svg";
+import log_in from "./Icon/img/log_in.svg";
+import private_page from "./Icon/img/private_page.svg";
 
 interface IProps {
     isAuthenticated:boolean;
@@ -18,10 +22,10 @@ const Navbar = (props:IProps) =>{
       <Avatar/>
       {/* <Filtered/> */}
       <ul className={cn(s.nav__links)}>
-        <li><Icon url="private_page.svg"/></li>
-        <li><Icon url="log_in.svg"/></li>
-        <li><Icon url="./img/log_out.svg"/></li>
-        <li><Icon url="./img/cart.svg"/></li>
+        <li><Icon url={private_page}/></li>
+        <li><Icon url={log_in}/></li>
+        <li><Icon url={log_out}/></li>
+        <li><Icon url={cart}/></li>
       </ul>
     </div>
   </nav>
