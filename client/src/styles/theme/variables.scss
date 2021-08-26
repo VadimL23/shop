@@ -1,18 +1,27 @@
-$font-html:            62.5%;
-$line-height-html:     1.8rem;
-$font-main:            'Lato', sans-serif;
-$font-second:          'Raleway', sans-serif;
+$font-html:              62.5%;
+$line-height-html:       1.8rem;
+$font-main:              'Lato', sans-serif;
+$font-second:            'Raleway', sans-serif;
 
-$color-header:          #10101DE5;
-$color-text:            #FFF; 
-$color-titles:          #444;
-$color-btn:             #FFF;
-$color-btn_selected:    #42A9ED;
+$color-header:            #10101DE5;
+$color-text:              #FFF; 
+$color-titles:            #444;
+$color-btn:               #FFF;
 
-$color-footer:          #3d4050;
+$color-btn_selected:      #42A9ED;
+$color-input-placeholder: #8c8c8c;
+$color-border-form:       #aaa;
+$form-box-shadow:         0 0 .6rem rgba(0,0,0,.6);
+$color-auth-link:         blue;
+$color-footer:            #3d4050;
 
-$color-highlight:       #42A9ED;
+$color-highlight:         #42A9ED;
 
-$border-radius:         .8rem;
+$border-radius:           .8rem;
 
- $btn_order-color:       green;
+$btn_order-color:         green;
+
+$btn-font-size:           2rem;
+$btn-primary:             lightblue;
+
+$border-color-input:      #000;
