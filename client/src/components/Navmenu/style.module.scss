@@ -1,0 +1,59 @@
+@import "../../styles/theme/breakpoints.scss";
+
+.navmenu {
+    width:100%;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    margin:0 auto;
+    align-items: center;
+    margin-top: 5em;
+
+    .nav__links {
+        display:flex;
+        height: 40px;
+        max-width: 200px;
+        font-size: 28px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .chapter {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100px;
+        height: 40px;
+        
+    }
+
+
+}
+
+// @include phone {
+//     .contain {
+//         padding: 0 10px;
+//     }
+// }
+
+// @include desk {
+//     .contain {
+//         padding: 0 20px;
+//     }
+// }
+
+.nav__links{
+    
+    display:flex;
+    height: 40px;
+    width: 150px;
+    font-size: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2em;
+    
+    & a{
+        padding-left:15px;
+    }
+}

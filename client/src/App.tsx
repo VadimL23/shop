@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router} from "react-router-dom";
 import {useRoutes} from "./routes";
 import {Navbar} from "./components/Navbar";
+import {Navmenu} from "./components/Navmenu";
 import {observer} from "mobx-react-lite";
 import {useStore} from "hooks";
 
@@ -16,6 +17,7 @@ const routes = useRoutes(isAuthenticated);
     <Router >
         <div className="container">
             <Navbar isAuthenticated={isAuthenticated}/>
+            <Navmenu />
            
              {routes}
             
