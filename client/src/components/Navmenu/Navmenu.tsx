@@ -2,34 +2,31 @@ import React, { useState } from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
 import {Filtered} from "components/Filtered";
+import {Link} from "react-router-dom";
+
 
 const Navmenu = () =>{
 
-  //const [tableData, setTableData] = useState([]);
-  //setTableData(["Каталог", "Новинки", "О нас", "Акции"]);
  return ( 
     <div className={cn(s.navmenu)}>
       <ul className={cn(s.nav__links)}>
-        <li>
-          <a className={cn(s.chapter)}>Каталог</a>
+        <li className={cn(s.nav__item)}>
+          <Link to={"/"} className={cn(s.chapter)}>Каталог</Link>
         </li>
-        <li>
-          <a className={cn(s.chapter)}>Новинки</a>
+        <li className={cn(s.nav__item)}>
+          <Link to={"/"} className={cn(s.chapter)}>Новинки</Link>
         </li>
-        <li>
-          <a className={cn(s.chapter)}>О &emsp; нас</a>
+        <li className={cn(s.nav__item)}>
+          <Link to={"/"} className={cn(s.chapter)}>О нас</Link>
+        </li >
+        <li className={cn(s.nav__item)}>
+          <Link to={"/"} className={cn(s.chapter)}>Акции</Link>
         </li>
-        <li>
-          <a className={cn(s.chapter)}>Акции</a>
-        </li>
-        <li>
-          <a className={cn(s.chapter)}>
+        <li className={cn(s.nav__item)}>
+          <Link to={"/"} className={cn(s.chapter)}>
             <Filtered/>
-          </a>
+          </Link>
         </li>
-        {/* <li>
-          <a className={cn(s.chapter)}>Рецепты</a>
-        </li> */}
       </ul>
     </div>
  )   

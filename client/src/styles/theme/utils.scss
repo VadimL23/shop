@@ -13,11 +13,7 @@
     display: block;
     margin: 0 auto;
     padding: 0 15px;
-    
-
-    border:1px dotted gray;
-    
-
+    margin-top: 18rem;
     @include hands{
         &{
         max-width: 640px !important;

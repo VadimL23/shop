@@ -21,8 +21,6 @@ const MainPage = observer((props:IProps) =>{
     
     return (
        <>
-            
-        <h1 className = {className}>Main page</h1>
          <MainSlider 
           sliderList={sliderList}
          />

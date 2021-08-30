@@ -15,12 +15,9 @@ const routes = useRoutes(isAuthenticated);
     
   return (
     <Router >
+       <Navbar isAuthenticated={isAuthenticated}/>
         <div className="container">
-            <Navbar isAuthenticated={isAuthenticated}/>
-            <Navmenu />
-           
-             {routes}
-            
+            {routes}
         </div>
       </Router>
   );
