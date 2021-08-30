@@ -14,7 +14,8 @@
     margin: 0 auto;
     padding: 0 15px;
     margin-top: 18rem;
-    @include hands{
+
+  @include hands{
         &{
         max-width: 640px !important;
         padding: 0 10px;
