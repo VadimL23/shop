@@ -8,7 +8,9 @@ const sliderList =
       },
         { img:"2.jpg",
           title:"Картинка со всякими вкуснятинами",
+
          subtitle:"Сьешь меня и будешь доволен жизнью - перекус это прекрасно!",
+
          background:"#3d5f8a",
          color:"#fff"
       },
