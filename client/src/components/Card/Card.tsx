@@ -2,9 +2,10 @@ import React from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import path from "path";
-
+import {useHistory} from "react-router-dom";
 
 export type cardData ={
+    id:number,
     img:{
         src:string,
         alt:string
@@ -21,9 +22,19 @@ type IProps = {
 
 const Card = (props:IProps) => {
     const {cardData} = props;
+    const history = useHistory();
+    const clickHandler =(e: React.MouseEvent<HTMLElement>):void =>{
+       e.stopPropagation();
+       let route = "/info/"+`${cardData?.id}` ?? "/";
+       history.push(route);
+    }
+    
     
        return (
-       <div className={cn(s.card)}>
+       <div 
+       className={cn(s.card)}
+       onClick={clickHandler}
+       >
         <div className={cn(s.card__item)}>
          <img className={cn(s['card__item--img'])} src={path.resolve(__dirname,`./images/cards/${cardData?.img?.src}`)} alt={cardData?.img?.alt} />
          </div> 

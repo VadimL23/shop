@@ -41,7 +41,7 @@ const ProductsSlider = (props:IProps) => {
               {productList && productList.map((cardData)=>{
            
             return(
-             <Card cardData={cardData} />
+             <Card key = {cardData.id} cardData={cardData} />
                 );
             })}
         </Slider>
