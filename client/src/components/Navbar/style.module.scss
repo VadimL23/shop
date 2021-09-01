@@ -46,7 +46,21 @@
     justify-content: space-around;
     align-items: center;
     min-width:230px;
+    
+    @include hands{
+        &{
+            justify-content: flex-end;
+            min-width:200px;
+        }
+    }
  
+      @include phone{
+        &{
+            justify-content: flex-end;
+            min-width:180px;
+            margin-left:0rem;
+        }
+    }
 }
 
 .nav__links a{
@@ -59,6 +73,15 @@
         margin-right: 1rem;
         transition: all .3s ease-in-out;
         border: 2px dashed $color-navbar;
+    
+       @include hands{
+        &{
+            width: 50px!important;
+            height: 50px!important;
+           
+        }
+    }
+    
     &:hover{
       box-shadow: $icon-shadow-hover; 
       transform:scale(1.05);

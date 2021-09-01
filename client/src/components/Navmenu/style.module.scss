@@ -17,36 +17,50 @@
         width: 100px;
         height: 40px;
         
+    @include lap{
+        
+        &{
+            padding: 0 15px;
+        }
     }
-
+    
+     @include hands{
+        
+        &{
+        padding: 0 5px;
+        }
+    }  
+       
+    @include phone{
+        
+        &{
+          padding: 0 0px;
+            
+        }
+    } 
+        
+    }
 
 }
 
-// @include phone {
-//     .contain {
-//         padding: 0 10px;
-//     }
-// }
 
-// @include desk {
-//     .contain {
-//         padding: 0 20px;
-//     }
-// }
 
 .nav__links{
     
     display:flex;
-    font-size: 28px;
+    font-size: 2.8rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     margin-right: 2em;
     width: 100%;  
     
- 
-    
-
+   @include hands{
+        
+        &{
+           margin-right: .4em;
+        }
+    }
     
     & a{
         padding-left:15px;
@@ -56,27 +70,103 @@
    .nav__item a{
      margin-right: 1rem;  
      position: relative;
+   
+       
+    @include lap{
+        
+        &{
+            font-size: 2.4rem;
+            margin-right: 1rem;
+            padding: 0 10px;
+        }
+    }
     
+     @include hands{
+        
+        &{
+            font-size: 1.6rem;
+            padding: 0 5px;
+            margin-right: .3rem;
+            word-wrap: normal;
+        }
+    }  
+       
+    @include phone{
+        
+        &{
+            display: none;
+            
+        }
+    } 
+       
     }
 
  .nav__item a:before{
-        width:100%;
-        height: 100%;
-        top:0;
-        left:0;
-        position: absolute;
-        content: "";
-        background-color:$color-highlight;
-        z-index: 1000;
-        display: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+    width: 110%;
+    height: 110%;
+    transition: opacity 0.3s;
+    background-color:$color-highlight;
+    z-index: -1; 
+    opacity: 0.5;
+    display: none;
+    border-radius: $border-radius;
+    border:2px dashed darken($color-highlight,15%);
     }
 
-    .nav__item a:hover:before
+
+.nav__item a:hover:before
       {
              
-        animation: animate .3s normal ease-in;
-          display: block;   
-       }
+     animation: animate .3s alternate 1 ease-out;
+     display: block;    
+     display: block;
+          
+
+    
+               
+}
+
+.navmenu__search{
+    padding: 1rem 1.4rem;
+    border-radius: $border-radius;
+    outline: none;
+    color:inherit;
+    padding-left: 35px;
+    font-size: 1.8rem;
+    
+
+    
+    
+    
+    
+    &::placeholder{
+      color:$color-placeholder;
+    }
+}
+
+.label_search{
+     position: relative;
+    
+    &:before{
+        display: block;
+        content: "";
+        position: absolute;
+        left:3px;
+        top:50%;
+        transform: translate3d(0%,-50%,0);
+        width: 3rem;
+        height: 3rem;
+        background: url(./img/search.svg) center no-repeat ;
+        cursor: pointer;
+    }
+}
+
+
 
 @keyframes animate{
     from{
@@ -85,8 +175,8 @@
         opacity: 0;
     }
     to{
-         width:100%;
-         height:100%;
+         width:110%;
+         height:110%;
          opacity:.5;
       }
 }
