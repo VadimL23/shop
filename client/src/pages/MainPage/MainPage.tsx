@@ -9,6 +9,7 @@ import sliderList from "config/constants/slider";
 import {useStore} from "hooks";
 import {observer} from "mobx-react-lite";
 
+
 interface IProps {
     className?: string  
 }
@@ -32,7 +33,7 @@ const MainPage = observer((props:IProps) =>{
          <ProductsSlider productList = {cardList}>
         Популярные товары
         </ProductsSlider>
-        
+           
       </>
     )
     

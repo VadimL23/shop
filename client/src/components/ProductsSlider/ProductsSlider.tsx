@@ -38,12 +38,9 @@ const ProductsSlider = (props:IProps) => {
              slidesToShow = {slideToShow}
           >
           
-              {productList && productList.map((cardData)=>{
-           
-            return(
-             <Card key = {cardData.id} cardData={cardData} />
-                );
-            })}
+              {productList && productList.map((cardData)=>        
+                 <Card key = {cardData.id} cardData={cardData} />
+            )}
         </Slider>
         </div>
         )

@@ -14,6 +14,7 @@ const NameOfProduct = types.model(
     id:types.optional(types.number,0),
     name:types.optional(types.string,''),
     price:types.optional(types.number,0),
+    rate:types.optional(types.number,0),
     img:types.optional(types.array(types.string),[])
 })
 ;
@@ -49,12 +50,12 @@ const ProductStore = types.model(
         
     ]),
     namesOfProduct:types.optional(types.array(NameOfProduct),[
-        {id:1, name:"Грецкий орех", price:100},
-        {id:2, name:"Фисташки жаренные и соленые Экстра", price:230},
-        {id:3, name:"Миндаль жаренный", price:432},
-        {id:4, name:"Фруктово-ореховая смесь жаренная", price:432},
-        {id:5, name:"Миндаль жаренный", price:123},
-        {id:6, name:"Кешью жаренный", price:123},
+        {id:1, name:"Грецкий орех", price:100, rate:3,img:["http://lorempixel.com/50/50/sports"]},
+        {id:2, name:"Фисташки жаренные и соленые Экстра", price:230, rate:5,img:["http://lorempixel.com/50/50/sports"]},
+        {id:3, name:"Миндаль жаренный", price:432, rate:4,img:["http://lorempixel.com/50/50/sports"]},
+        {id:4, name:"Фруктово-ореховая смесь жаренная", price:432, rate:3,img:["http://lorempixel.com/50/50/sports"]},
+        {id:5, name:"Миндаль жаренный", price:123, rate:1,img:["http://lorempixel.com/50/50/sports"]},
+        {id:6, name:"Кешью жаренный", price:123, rate:2,img:["http://lorempixel.com/50/50/sports"]},
     ])
  }
 );

@@ -1,7 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
-import star_icon from "./star_icon.svg";
+import star_icon from "assets/svg/star_icon.svg";
 
 interface IProps {
   //isAuthenticated:boolean;
