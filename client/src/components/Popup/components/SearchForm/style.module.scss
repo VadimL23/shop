@@ -1,0 +1,24 @@
+@import "../../../../styles/style.scss";
+
+.search_wrapper{
+    width: 100%;
+}
+
+.search__input{
+    
+    padding: 10px 13px;
+    border:1px solid $border-color-input;
+    outline: none;
+    display: inline-block;
+    font-size: 2.3rem;
+    border-radius: $border-radius;
+    width:100%;
+    min-width:250px;
+    margin: 0 auto;
+    
+    &::placeholder{
+        font-size: 1.6rem;
+        color:$color-input-placeholder;
+        
+    }
+}

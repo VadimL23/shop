@@ -25,7 +25,9 @@ return (
            {sliderList.map((el,index)=>{
                 
                 return(
-                <div className={cn(s["slider_item"])} >
+                <div
+                   key = {el.id} 
+                   className={cn(s["slider_item"])} >
                     <div className={cn(s["slider_item_textbox"])} style={{backgroundColor:`${el.background}`, color:`${el.color}`}}>
                          <span className={cn(s["slider_item-title"])}>{el.title}</span>  
                          <span className={cn(s["slider_item-subtitle"])}>{el.subtitle}</span>  
