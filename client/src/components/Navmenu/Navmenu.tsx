@@ -11,15 +11,12 @@ interface IProps{
 const Navmenu = (props:IProps) =>{
     const {setVisibleModal,isVisibleModal} = props;
     
-    
-
-        
-           
-
-    
-    
  return ( 
     <div  className={cn(s.navmenu)}>
+      <div className={cn(s.burger)}>
+        <a className={cn(s.lines)}></a>
+      </div>
+      
       <ul className={cn(s.nav__links)}>
         <li className={cn(s.nav__item)}>
           <Link to={"/"} className={cn(s.chapter)}>Каталог</Link>

@@ -1,5 +1,4 @@
 @import "../../styles/style.scss";
-@import "../../styles/theme/breakpoints.scss";
 
 .navmenu {
     width:100%;
@@ -44,7 +43,24 @@
 
 }
 
+.burger {
 
+    .lines{
+        display: none;
+        border-bottom: 14px double black; 
+        border-top: 5px solid black; 
+        content:"";
+        height: 22px; 
+        width:25px;
+
+        @include phone{
+
+            & {
+                display: flex;
+            }
+        } 
+    } 
+} 
 
 .nav__links{
     

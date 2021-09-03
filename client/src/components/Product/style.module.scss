@@ -6,14 +6,63 @@
     height: 100%;
     display: grid;
     grid-template-columns: 74% 32%;
+
+    @include phone{
+
+        & {
+            grid-template-columns: 100%;
+        }
+    }
+
+    .product__content {
+
+        .product__images {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        
+            @include lap{
+                & {
+                    flex-direction: column;
+                    flex-wrap: nowrap;  
+                }
+            } 
+        }
+    }
+    
+    .product__info {
+        color:black;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+        font-size: 18px;
+
+        @include phone{
+            & {
+                display:none; 
+            }
+        } 
+    }
+
+    .product__info_mobile {
+        color:black;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+        font-size: 18px;
+        display: none;
+        flex-direction: column;
+
+        @include phone{
+            & {
+                display:flex; 
+            }
+        } 
+    }
 }
   
-.product__images {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+
 .image_block {
     width: 47%;
     overflow: hidden;
@@ -21,6 +70,14 @@
     margin: auto;
     padding-top: 10px;
     padding-bottom: 5px;
+
+    @include lap{
+
+        & {
+            width: 95%;
+          
+        }
+    }
 }
   
 .image_size {
@@ -33,13 +90,6 @@ img {
   border-radius: 5px;
 }
   
-.product__info {
-    color:black;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 10px;
-    font-size: 18px;
-}
 .product__partNumber {
     color: grey;
     font-size: 16px;

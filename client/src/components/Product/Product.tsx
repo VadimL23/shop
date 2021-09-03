@@ -32,6 +32,33 @@ return (
                 ))}
           
             </div>
+
+            <div className={cn(s.product__info_mobile)}>
+              <p className={cn(s.product__partNumber)}>Арт. {props.id}</p>
+              <p className={cn(s.product__title)}>{props.title}</p>
+              <div className={cn(s.rating)}>
+                <div className={cn(s.stars)}>
+                  <img src={star_icon} className={cn(s.icon_img)}/>
+                </div>
+                <div className={cn(s.stars)}>
+                  <img src={star_icon} className={cn(s.icon_img)}/>
+                </div>
+                <div className={cn(s.stars)}>
+                  <img src={star_icon} className={cn(s.icon_img)}/>
+                </div>
+                <div className={cn(s.stars)}>
+                  <img src={star_icon} className={cn(s.icon_img)}/>
+                </div>
+                <div className={cn(s.stars)}>
+                  <img src={star_icon} className={cn(s.icon_img)}/>
+                </div>
+                <div className={cn(s.rate)}>{props.rate}</div>
+              </div>
+              <p className={cn(s.product__size)}>100 гр</p>
+              <p className={cn(s.price)}>150 рублей</p>
+              <button>Добавить в корзину</button>
+            </div>
+
             <div className={cn(s.product__discription)}>
                 {props.description}
             </div>
