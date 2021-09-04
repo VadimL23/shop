@@ -1,4 +1,4 @@
-import React,{ Dispatch } from "react";
+import React,{ Dispatch, useRef, useEffect} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import {SearchForm} from "./components/SearchForm"
@@ -12,9 +12,17 @@ type IProps = {
   setVisibleModal:Dispatch<any>
 }
 
+
+
 const Popup = (props:IProps) => {
     const {children,isVisibleModal,setVisibleModal} = props; 
          
+    const inputRef = useRef<HTMLInputElement>(null);
+    console.log(inputRef.current);
+    
+    useEffect(()=>{
+        if (inputRef.current) {inputRef.current.focus();}
+    },[isVisibleModal])
     
     return (
      <div 
@@ -24,13 +32,13 @@ const Popup = (props:IProps) => {
           onClick={(e)=>{e.stopPropagation()}}
           className={cn(s.overlay__content)}>
            
-           <SearchForm isVisibleModal/>
+           <SearchForm ref={inputRef} isVisibleModal/>
            {children}
         </div>
      </div>
        )
        
-      }
+      };
        
 export {
       Popup,

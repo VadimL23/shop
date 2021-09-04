@@ -1,4 +1,4 @@
-import React,{ useRef, useState, useMemo } from "react";
+import React,{ useRef, useState, useMemo, forwardRef } from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import {SearchCard} from "./components/SearchCard";
@@ -11,9 +11,10 @@ type IProps = {
   className?: string,
   children?: React.ReactNode,
   isVisibleModal:true,
+ 
 }
 
-const SearchForm = observer((props:IProps) => {
+const SearchForm = forwardRef<HTMLInputElement, IProps>((props, ref) => {
     const refInput = useRef<HTMLInputElement | null>(null);   
     const {isVisibleModal} = props;
     const productStore = useProductStore();
@@ -53,9 +54,9 @@ const SearchForm = observer((props:IProps) => {
         </label>
                  
                  <input 
+                  ref={ref}
                   value = {searchQuery}
                   onChange = {e => setSearchQuery(e.target.value)}
-                  ref = {refInput}
                   name="searcInput" 
                   id="searchInput" 
                   className={cn(s.search__input)}

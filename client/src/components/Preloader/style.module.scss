@@ -1,0 +1,10 @@
+.preloader{
+    display:none;
+    margin:0 auto;
+    
+}
+
+.preloader.visible {
+    display: flex;
+    justify-content: center;
+}

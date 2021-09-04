@@ -1,6 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
 import cn from "classnames";
 import s from "style.module.scss";
+import {Preloader} from "components/Preloader";
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
@@ -9,9 +10,11 @@ type IProps = {
 }
 
 const BasketPage = (props:IProps) => {
-       return (
+ 
+    
+    return (
        <>
-            Basket page
+            <Preloader isVisible={true}/>
        </>
        )
        
