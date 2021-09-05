@@ -61,6 +61,8 @@
         
         &__img {
             border-radius:$border-radius;
+            max-height: 5rem;
+            max-width: 5rem;
             }
         &__span{
             font-size: 2rem;
