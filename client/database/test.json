@@ -1,0 +1,18 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode",
+             
+                "productsList": [            
+                  {"id":1, 
+                        "name":"Грецкий орех", 
+                        "price":100, 
+                        "rate":3,
+                        "img":["http://lorempixel.com/50/50/nature"]}
+                                ]
+             }
+}

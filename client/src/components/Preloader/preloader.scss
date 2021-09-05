@@ -1,0 +1,10 @@
+@import "../../styles//theme/variables.scss";
+
+.preloader{
+    width:23rem;
+    height:23rem;
+}
+
+.rect{
+   fill:$color-preloader;
+}

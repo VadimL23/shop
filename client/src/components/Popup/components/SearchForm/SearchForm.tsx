@@ -1,30 +1,39 @@
-import React,{ useRef, useState, useMemo } from "react";
+import React,{ useRef, useState, useMemo, forwardRef } from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import {SearchCard} from "./components/SearchCard";
+import {Preloader} from "components/Preloader";
 import {observer} from "mobx-react-lite";
 import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
+
+
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  isVisibleModal:true,
+  snapshot?:[]
 }
 
-const SearchForm = observer((props:IProps) => {
+const SearchForm = forwardRef<HTMLInputElement, IProps | null>((props, ref) => {
     const refInput = useRef<HTMLInputElement | null>(null);   
-    const {isVisibleModal} = props;
+    
     const productStore = useProductStore();
-    const {namesOfProduct} = productStore;
+  
+    const {typesOfProduct} = productStore;
+    
     const [selectSort, setSelectSort] = useState("name");
     const [searchQuery, setSearchQuery] = useState('');
-    const snapshot = getSnapshot(namesOfProduct);
+    const snapshot = getSnapshot(typesOfProduct);
   
+   
+const allProducts = [...snapshot].map(el=>el.productsList).reduce((res,el)=>{
+         res=res||[];
+        return res.concat(el)});;
     
-    const sortedProduct =  useMemo(()=>{
-        return [...snapshot].sort((a,b)=>a["name"].localeCompare(b["name"]))
+const sortedProduct =  useMemo(()=>{
+        return allProducts.sort((a,b)=>a["name"].localeCompare(b["name"]))
        },[selectSort, snapshot] );
         
 
@@ -32,10 +41,12 @@ const SearchForm = observer((props:IProps) => {
     const sortedAndSearchedPosts = useMemo(()=>{
         return sortedProduct.filter(product=>product["name"].toLowerCase().includes(searchQuery));
         
+console.log("All product", allProducts);
+console.log("sorted", sortedProduct);
+        
     },[searchQuery, sortedProduct]);    
     
-    console.log(getSnapshot(namesOfProduct));
-    
+ 
     return (
        
            <div className={cn(s.search_wrapper)}>
@@ -44,7 +55,7 @@ const SearchForm = observer((props:IProps) => {
                  id="searchForm"
                  name="searchForm"
                 >
-                 
+    
         <label 
             onClick={(e)=>{e.stopPropagation();
                            alert("SEARCH")}}
@@ -53,25 +64,24 @@ const SearchForm = observer((props:IProps) => {
         </label>
                  
                  <input 
+                  ref={ref}
                   value = {searchQuery}
                   onChange = {e => setSearchQuery(e.target.value)}
-                  ref = {refInput}
                   name="searcInput" 
                   id="searchInput" 
                   className={cn(s.search__input)}
                   placeholder="Начните поиск"
                   />
+                   
                    {sortedAndSearchedPosts.map((el)=>
                    <SearchCard 
                     key = {el.id}
                     product = {el}                              
+                    
                     />
                                                  
                     )}
-                   
-                  
-                  
-               </form>
+                 </form>
                
            </div>
        )

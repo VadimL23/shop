@@ -1,7 +1,9 @@
 @import "../../styles/style.scss";
+@import "../../styles/theme/breakpoints.scss";
+
 
 .menu__wrapper{
-    max-width: 1170px !important;
+    max-width: 1200px !important;
     max-height: 230px;
     margin:0 auto;
     background-color:$color-navbar;
@@ -45,7 +47,7 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
-    min-width:230px;
+    min-width:170px;
     
     @include hands{
         &{

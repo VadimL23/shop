@@ -1,0 +1,158 @@
+{ "typesOfProduct":[
+        {"id":1, 
+        "name":"Орехи",
+         "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+        "productsList": [
+            
+                        {"id":1, 
+                        "name":"Грецкий орех", 
+                        "price":100, 
+                        "rate":3,
+                        "img":["http://lorempixel.com/50/50/nature"]},
+                        
+                        {"id":2, 
+                        "name":"Фисташки жаренные и соленые Экстра", 
+                        "price":230, 
+                        "rate":5,
+                        "img":["http://lorempixel.com/50/50/sports"]},
+                        
+                        {"id":3, 
+                         "name":"Миндаль жаренный", 
+                         "price":432, 
+                         "rate":4,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":4, 
+                         "name":"Фруктово-ореховая смесь жаренная", 
+                         "price":432, 
+                         "rate":3,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":5, 
+                         "name":"Миндаль жаренный", 
+                         "price":123, 
+                         "rate":1,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":6, 
+                         "name":"Кешью жаренный", 
+                         "price":123,
+                         "rate":2,
+                         "img":["http://lorempixel.com/50/50/sports"]}
+                            ]
+        },
+
+        {"id":2, 
+         "name":"Наборы",
+           "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+         "productsList":[ {"id":7, 
+                        "name":"Набор орехов и сухофруктов 'Дары природы' подарочный 600 г", 
+                        "price":778, 
+                        "rate":3,
+                        "img":["http://lorempixel.com/50/50/nature"]},
+                        
+                        {"id":8, 
+                        "name":"Смесь орехов и сухофруктов ДАРЫ ПРИРОДЫ орехи и изюм, 150 г", 
+                        "price":230, 
+                        "rate":5,
+                        "img":["http://lorempixel.com/50/50/sports"]},
+                        
+                        {"id":9, 
+                         "name":"Смесь орехов и сухофруктов ДАРЫ ПРИРОДЫ Сладкая, 150 г", 
+                         "price":432, 
+                         "rate":4,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":10, 
+                         "name":"Ореховая смесь 1000 грамм, свежий набор полезных орешков и сухофруктов хорошего качества 'WALNUTS' Ореховая смесь 1000 грамм, свежий набор полезных орешков и сухофруктов хорошего качества", 
+                         "price":432, 
+                         "rate":3,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":11, 
+                         "name":"NutsBox / Подарочный набор из орехов и сухофруктов / Набор № 65 'К чаю'", 
+                         "price":123, 
+                         "rate":1,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":12, 
+                         "name":"Ореховая смесь 500 грамм, свежий набор полезных орешков и сухофруктов хорошего качества 'WALNUTS' Ореховая смесь 500 грамм, свежий набор полезных орешков и сухофруктов хорошего качества", 
+                         "price":123,
+                         "rate":2,
+                         "img":["http://lorempixel.com/50/50/sports"]}]},
+        
+        {"id":3,
+           "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+         "name":"Сухофрукты", 
+         "productsList":[]},
+        
+        {"id":4,
+           "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+         "name":"Специи", 
+         "productsList":[]},
+        
+        {"id":5,
+           "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+         "name":"цукаты", 
+         "productsList":[]},
+        
+        {"id":6, 
+           "img":[
+             "http://lorempixel.com/50/50/food"             
+         ],
+         "name":"Сладости", 
+         "productsList":[]}
+ 
+                    ]
+    ,
+    
+    
+           "productsList": [
+            
+                        {"id":1, 
+                        "name":"Грецкий орех", 
+                        "price":100, 
+                        "rate":3,
+                        "img":["http://lorempixel.com/50/50/nature"]},
+                        
+                        {"id":2, 
+                        "name":"Фисташки жаренные и соленые Экстра", 
+                        "price":230, 
+                        "rate":5,
+                        "img":["http://lorempixel.com/50/50/sports"]},
+                        
+                        {"id":3, 
+                         "name":"Миндаль жаренный", 
+                         "price":432, 
+                         "rate":4,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":4, 
+                         "name":"Фруктово-ореховая смесь жаренная", 
+                         "price":432, 
+                         "rate":3,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":5, 
+                         "name":"Миндаль жаренный", 
+                         "price":123, 
+                         "rate":1,
+                         "img":["http://lorempixel.com/50/50/sports"]},
+
+                        {"id":6, 
+                         "name":"Кешью жаренный", 
+                         "price":123,
+                         "rate":2,
+                         "img":["http://lorempixel.com/50/50/sports"]}
+                            ]
+}

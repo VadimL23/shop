@@ -1,0 +1,28 @@
+@import "../../styles/style.scss";
+
+.basket {
+    height: 100%;
+    margin-top: 50px;
+    
+    .basket_title {
+        font-size: 36px;
+        font-weight: 700;
+        margin: 0 auto;
+        max-width: 700px !important;
+        height: 100%;
+        padding: 50px 0;
+        text-align: center;
+        line-height: 1.05;
+        
+    }
+    .basket_all_quantity {
+
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0 auto;
+        max-width: 700px !important;
+        height: 100%;
+        padding: 20px 0;
+        line-height: 1.05;
+    }
+}

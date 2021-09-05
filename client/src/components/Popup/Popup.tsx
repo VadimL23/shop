@@ -1,8 +1,11 @@
-import React,{ Dispatch } from "react";
+import React,{ Dispatch, useRef, useEffect, useState} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
-import {SearchForm} from "./components/SearchForm"
-
+import {SearchForm} from "./components/SearchForm";
+import {Preloader} from "components/Preloader";
+import {useProductStore} from "hooks";
+import {getSnapshot, onSnapshot, getType} from "mobx-state-tree";
+import {observer} from "mobx-react-lite";
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
@@ -12,9 +15,23 @@ type IProps = {
   setVisibleModal:Dispatch<any>
 }
 
-const Popup = (props:IProps) => {
+
+
+const Popup =  observer((props:IProps) => {
     const {children,isVisibleModal,setVisibleModal} = props; 
-         
+        
+    const inputRef = useRef<HTMLInputElement>(null);
+    
+    const productStore = useProductStore(); 
+      
+    const [snapshot,setSnapshot] = useState(getSnapshot(productStore));
+    
+    onSnapshot(productStore,(sn)=>{setSnapshot(sn)})
+
+    
+    useEffect(()=>{
+        if (inputRef.current) {inputRef.current.focus();}
+    },[isVisibleModal])
     
     return (
      <div 
@@ -24,14 +41,21 @@ const Popup = (props:IProps) => {
           onClick={(e)=>{e.stopPropagation()}}
           className={cn(s.overlay__content)}>
            
-           <SearchForm isVisibleModal/>
+        {(snapshot.typesOfProduct.length == 0) ?
+        (<Preloader isVisible={true}/>)
+            :
+        (<SearchForm />)
+        }
+          
            {children}
         </div>
      </div>
        )
        
-      }
+      })
        
 export {
-      Popup,
+     Popup,
       }
+      
+      //<SearchForm ref={inputRef} isVisibleModal/>   

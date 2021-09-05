@@ -81,7 +81,7 @@ const Navbar = (props:IProps) =>{
            
          <li className={cn(s.nav__item)}>
           <NavLink 
-            to=""
+            to="/basket"
             className={cn(s.Navbar__icon)} 
             >
                 <svg 
