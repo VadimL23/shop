@@ -1,0 +1,4 @@
+{
+    "/category":"/typesOfProduct",
+     "/category/:id":"/typesOfProduct/:id"
+}

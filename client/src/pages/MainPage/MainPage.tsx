@@ -27,11 +27,11 @@ const MainPage = observer((props:IProps) =>{
          />
         
         <ProductsSlider productList = {cardList}>
-        Новинки
+           Новинки
         </ProductsSlider>
         
          <ProductsSlider productList = {cardList}>
-        Популярные товары
+            Популярные товары
         </ProductsSlider>
            
       </>

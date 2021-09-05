@@ -22,6 +22,7 @@ export const useRoutes = isAuthenticated =>{
             <Route path = {route.INFO_ROUTE+"/:id"}  component={InfoPage} exact/> 
             <Route path = {route.ADMIN_ROUTE} component={AdminPage} exact/> 
             <Route path = {route.CATEGORY_ROUTE} component={CategoryPage} exact/> 
+            <Route path = {route.CATEGORY_ROUTE + '/:id'} component={CategoryPage} exact/> 
             <Route render={()=>( <Redirect to = "/" /> )}/>
          </Switch>
         );
@@ -36,7 +37,8 @@ export const useRoutes = isAuthenticated =>{
             <Route path = {route.INFO_ROUTE+"/:id"}  component={InfoPage} exact/> 
             <Route path = {route.LOGIN_ROUTE} component={AuthPage} exact/>   
             <Route path = {route.REGISTRATION_ROUTE} component={AuthPage} exact/>   
-            <Route path = {route.CATEGORY_ROUTE} component={CategoryPage} exact/>   
+            <Route path = {route.CATEGORY_ROUTE} component={CategoryPage} exact/>
+            <Route path = {route.CATEGORY_ROUTE + '/:id'} component={CategoryPage} exact/> 
             <Route path = {route.AUTH_ROUTE} component={AuthPage} exact/>       <Route render={()=>( <Redirect to = "/" /> )}/>
                  
                      
