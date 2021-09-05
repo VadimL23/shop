@@ -1,0 +1,129 @@
+@import "../../styles/style.scss";
+
+.product {
+    margin: 0 auto;
+    max-width: 700px !important;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+
+    @include hands{
+
+        & {
+            grid-template-columns: 40% 60%;
+        }
+    }
+    
+    .product__content {
+        width: 100%;
+    }
+
+    .product__info {
+        width: 100%;
+        color:black;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+        font-size: 18px;
+
+        .buttons__row {
+            display: flex;
+            flex-direction: row;
+            max-width: 180px;
+            margin-top: 10px;
+
+            @include hands{
+
+                & {
+                    margin-top: 0px;
+                }
+            }
+
+            @include phone{
+
+                & {
+                    font-size: 12px;
+
+                }
+            }
+        }
+        .product__quantity {
+            margin-top: 10px;
+        }
+          
+        button {
+        width: 80%;
+        border: 2px solid green;
+        border-radius: 6px;
+        margin-top: 20px;
+        font-weight: bold;
+        color: white;
+        background-color: green;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+        
+            &:last-child {
+                margin-left: 10px;
+            }
+
+            @include hands{
+
+                & {
+                    width: 50%;
+                    font-size: 12px;
+                    padding: 10px 5px;
+                }
+            }
+
+            @include phone{
+
+                & {
+                    margin-top: 10px;
+
+                }
+            }
+
+        }
+
+    }
+
+}
+  
+.image_block {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+  
+.image_size {
+    display: inline;
+    width: 100%;
+}
+img {
+    width: 100%;
+    border-radius: 5px;
+}
+  
+.product__partNumber {
+    color: grey;
+    font-size: 16px;
+    margin-top: 10px;
+}
+  
+.product__title {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+  
+  
+.product__size {
+    margin-top: 10px;
+}
+  
+.price {
+    margin-top: 10px;
+}
+
+  
