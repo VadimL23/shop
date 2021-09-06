@@ -8,7 +8,7 @@ import {useProductStore} from "hooks";
 import {CategoryPanel} from "./components/CategoryPanel";
 import {CategoryCard} from "./components/CategoryCard";
 import {Preloader} from "components/Preloader";
-
+import {Location} from "components/Location";
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
@@ -29,12 +29,17 @@ const CategoryPage = observer((props:IProps) => {
     onSnapshot(store, (sn)=>{setSnapshot(sn)});
     
     const {id} = useParams<Params>();
-  
+
+   
     
     return (
-       
+    <>
+        <Location />
+        
     <div className={cn(s.page)}>
-          
+       
+            
+             
          {(typeof id ==="undefined")?
                 
             
@@ -48,21 +53,35 @@ const CategoryPage = observer((props:IProps) => {
           </div>)}
               
           <div className={cn(s.page__content)}>
-       { (snapshot?.typesOfProduct.length == 0) ? 
-          (<Preloader isVisible={true}/>)
-          :( snapshot?.typesOfProduct.map((el)=>
+          
+          { (snapshot?.typesOfProduct.length == 0) ? 
+             (<Preloader isVisible={true}/>)
+             : (id === undefined) ?
+              (snapshot?.typesOfProduct.map((el)=>
               <CategoryCard 
               key = {el.id}
-              nameList={getTypesOfProducts()}/>)
-         )
-            
+              {...el}
+              />)
+              )
+             :
+               ( snapshot?.typesOfProduct[+id-1].productsList.map((el)=>
+               <CategoryCard 
+                key = {el.id}
+               {...el}
+              />
+              )
+                  
+                  
+               )
+              
+              }
           
-           
-        }
            </div>
            
        
        </div>
+        
+        </>
        )
        
       });
@@ -71,7 +90,7 @@ export {
       CategoryPage,
       }
       
-      
+      // 
 //        <ul className={cn(s["panel__subgroup"])}>
 //                           <li className={cn(s.panel__li)}>
 //                               <a href="#">Lorem ipsum.</a>
