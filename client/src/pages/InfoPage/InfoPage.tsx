@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import s from "style.module.scss";
 import {Product} from "components/Product";
+import {Location} from "components/Location";
 import product_data from "config/constants/product_data";
 import path from "path";
 
@@ -15,6 +16,7 @@ const InfoPage = (props: any) => {
   const id = props.match.params.id; 
   return (
     <>
+      <Location />
       <Product 
         id={id}
         title={product_data.title}

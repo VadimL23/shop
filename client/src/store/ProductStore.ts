@@ -52,7 +52,8 @@ const RateOfProduct = types.model(
 
 const ProductStore = types.model(
 "mainStore",{
-    typesOfProduct:types.optional(types.array(TypesOfProduct),[])
+    typesOfProduct:types.optional(types.array(TypesOfProduct),[]),
+    active:types.safeReference(TypesOfProduct)
  }
 ).actions(self=>{
     return {
@@ -73,12 +74,9 @@ const ProductStore = types.model(
     getAllProducts:function(){
     return getSnapshot(self).typesOfProduct.map((el)=>{
            return el.productsList;
-       })
-//   ( a.lenght == 0) ?  [] : (a.reduce((summ,el)=>{
-//        summ=summ || [];
-//        return summ.concat(el);
-//    }) );
-        
+       })},
+    getProducts:function(prod:number){
+        return 
     }
 
     

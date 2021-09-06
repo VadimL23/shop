@@ -1,0 +1,14 @@
+.location{
+    display: block;
+    margin:2rem 0;
+ }
+
+.link{
+    color:darken(lightgray,10%);
+    font-size: 2rem;
+    transition: color .2s linear;
+    
+   &:hover{
+        color:darken(lightgray,18%);
+    }  
+}

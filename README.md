@@ -5,7 +5,16 @@
 
 In the project directory, you can run:
 
-### `npm run dev`
+Start a local development server (port `3000`):
 
-Runs the server app in the development mode.\
-Open [http://localhost:5000](http://localhost:5000) to REST API.
+    npm run start
+
+Start a mock-server (port `3001`):
+
+    npm run start:json-server
+
+Or start both:
+
+    npm run start:mock
+
+
