@@ -1,0 +1,108 @@
+@import "../../styles/style.scss";
+
+.customcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 285px;
+    border-radius:$border-radius;
+    border:1px solid $color-highlight;
+    margin-top: 3rem;
+  
+}
+
+.customcard__content{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.customcard__img{
+    display: block;
+    width:100%;
+    height:30%;
+}
+
+.customcard__title{
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.customcard__description{
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+}
+.customcard__box{
+    display: flex;
+    flex:1 0 42%;
+    justify-content: space-between;
+ 
+    }
+
+.customcard__item{
+    display:flex;
+    flex-direction: column;
+    margin: 1.5rem  0;
+    flex:.3 1 45%;
+    text-align: center;
+ 
+    
+    &__title{
+        font-size: 1.8rem;
+        margin-bottom: .5rem;
+        font-weight: 700;
+        
+    }
+    &__select{
+        border-radius: calc(#{$border-radius} - 3px);
+      height:3rem;
+    outline: none;
+    font-size: 1.6rem;
+    border-color:$color-highlight;
+               
+    }
+     }
+
+.customcard__option{
+    font-size: 1.6rem;
+    line-height:2.3rem;
+    margin:2rem 0; 
+  
+    
+    &:selected{
+        background-color: red;
+    }
+}
+
+.customcard__description{
+    text-indent: 1rem;
+    text-align: justify;
+}
+
+.customcard__btn{
+    padding: 1rem 1rem;
+    background-color: lighten($btn_order-color,13%);  
+    margin:0 auto;
+    transition:all .2s ease-out;
+    
+    &:hover{
+         box-shadow:  0 0 .8rem rgba(darken($btn_order-color,13%),.5)!important; 
+        
+    }
+}
+
+.customcard__text{
+    text-align: center;
+    margin-top: 1rem;
+       
+    &>span{
+        font-size: 2rem;
+    }
+}
+
+ .customcard__cost{
+    font-weight: 700;
+    }
