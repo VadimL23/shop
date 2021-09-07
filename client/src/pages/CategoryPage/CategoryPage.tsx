@@ -41,20 +41,16 @@ const CategoryPage = observer((props:IProps) => {
             
              
          {(typeof id ==="undefined")?
-                
-            
-         (<div className={cn(s.panel__content)}>
+          (<div className={cn(s.panel__content)}>
              <CategoryPanel nameList={getTypesOfProducts()}/>
           </div>)
                 :
-           (<div className={cn(s.panel__content)}>
-             
-             <CategoryPanel nameList={getTypesOfProducts()}/>
-          </div>)}
-              
-          <div className={cn(s.page__content)}>
-          
-          { (snapshot?.typesOfProduct.length == 0) ? 
+          (<div className={cn(s.panel__content)}>
+              <CategoryPanel nameList={getTypesOfProducts()}/>
+          </div>)
+         }
+            <div className={cn(s.page__content)}>
+           { (snapshot?.typesOfProduct.length == 0) ? 
              (<Preloader isVisible={true}/>)
              : (id === undefined) ?
               (snapshot?.typesOfProduct.map((el)=>
@@ -70,15 +66,10 @@ const CategoryPage = observer((props:IProps) => {
                {...el}
               />
               )
-                  
-                  
-               )
-              
-              }
+             )
+          }
           
            </div>
-           
-       
        </div>
         
         </>

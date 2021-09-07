@@ -25,11 +25,8 @@ const ProductsSlider = (props:IProps) => {
       pauseOnHover: true
     };  
     
-     const slideToShow = Math.min(Math.floor(window.screen.width/280),4); 
-  
-
-    
-    return (
+const slideToShow = Math.min(Math.floor(window.screen.width/280),4); 
+     return (
         <div>
         {children ? <h2 className={cn(s.slider__title)}>{children}
        </h2>:""}
@@ -37,15 +34,13 @@ const ProductsSlider = (props:IProps) => {
             {...settings }
              slidesToShow = {slideToShow}
           >
-          
-              {productList && productList.map((cardData)=>        
+            {productList && productList.map((cardData)=>        
                  <Card key = {cardData.id} cardData={cardData} />
             )}
         </Slider>
         </div>
         )
-       
-      }
+       }
        
 export {
       ProductsSlider,
