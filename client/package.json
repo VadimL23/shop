@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -39,7 +41,7 @@
   },
   "scripts": {
     "start:mock": "concurrently \"json-server database/index.json --port 3001 --routes database/routes.json\" \"react-scripts start\"",
-    "servMock":"json-server database/index.json --port 3001 --routes database/routes.json",
+    "servMock": "json-server database/index.json --port 3001 --routes database/routes.json",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "start:json-server": "json-server database/index.json --port 3001 --routes database/routes.json"
