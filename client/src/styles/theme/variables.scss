@@ -13,13 +13,15 @@ $color-btn_selected:      #42A9ED;
 $color-input-placeholder: #8c8c8c;
 $color-border-form:       #aaa;
 $color-preloader:         lighten(#42A9ED,10%);
+$color-footer:            #e3e3e3;
+$color-footer-bottom:     #666;
 
 $form-box-shadow:         0 0 .6rem rgba(0,0,0,.6);
 $icon-shadow:             0 0 .3rem rgba(155,200,225,1);
 $icon-shadow-hover:             0 0 .8rem darken(rgba(155,200,225,1),18%);
 
 $color-auth-link:         blue;
-$color-footer:            #3d4050;
+
 $color-arrow:             lighten(blue,10%);
 $color-link:              lighten(blue,5%);
 $color-navbar:            rgba(#42A9ED,.6);

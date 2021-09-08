@@ -45,7 +45,7 @@ const MainPage = observer((props:IProps) =>{
         </ProductsSlider>
         
         <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",flex:"1 0 21%"}}>
-         {cards(12)}
+         {cards(4)}
         </div>
         
     </>
