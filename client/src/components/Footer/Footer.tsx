@@ -70,8 +70,10 @@ const Footer = (props:IProps) => {
                     id="footer_phone" 
                     label="Ваш тлефон" 
                     variant="outlined" 
-                     className={cn(s["footer__input"])}
+                    className={cn(s["footer__input"])}
                     />
+  
+                    
                 <button className={cn(s["footer_btn"])}>
                     Заказать звонок
                 </button>
