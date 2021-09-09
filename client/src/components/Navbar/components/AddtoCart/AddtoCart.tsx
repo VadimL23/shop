@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useContext, useEffect} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import {useProductStore} from "hooks";
@@ -7,24 +7,36 @@ import {observer} from "mobx-react-lite";
 import {useHistory} from "react-router-dom";
 import cart_full from "assets/Navbar/cart_full.png";
 import cart_empty from "assets/Navbar/cart_empty.png";
+import {Theme} from "App";
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  isVisible:boolean
+  isVisible:boolean,
 }
 
 const AddtoCart = observer((props:IProps) => {
     const {isVisible} = props;
-    const [selfVisible,setSelfVisible] = useState(isVisible);
-    const data:boolean = true;
     const productsStore = useProductStore();
     const {productList:list} = getSnapshot(productsStore.cart);
     const history = useHistory();
+    const theme = useContext(Theme);  
+    
+    useEffect(()=>{
+    const body = document.querySelector('body');
+       if(body) {body.style.overflow = isVisible ? 'hidden' : 'auto';}
+    },[isVisible])    
+   
+    
+    console.log(`isVisible`, isVisible);
+    console.log(`isOverflow`, theme?.isOverflow);
+    
     return (
-       <div id={"addtoCart"} className={cn({[s["addto"]]:true,
-                                           [s["addto__active"]]:isVisible})}>
+       <div id={"addtoCart"} 
+            className={cn({[s["addto"]]:true,
+                       [s["addto__active"]]:isVisible})}
+            >
                 <div className={cn(s["addto__title"])}>
                     {(list.length == 0) ?
                         
@@ -43,7 +55,11 @@ const AddtoCart = observer((props:IProps) => {
                 </div>
                 <div className={cn(s["addto__goods"],s["cart__goods"])}>
                 {(list.length != 0) ?
-                   ( <div className={cn(s["goods__items"])}>
+                   ( 
+                    <>
+                    <div 
+                       
+                       className={cn(s["goods__items"])}>
                         {list.map((el)=>{
                                 return(
                         <div key={el.id} className={s["goods__item"]}>
@@ -84,7 +100,8 @@ const AddtoCart = observer((props:IProps) => {
                               </div>
                         </div>)
                        }) }
-                   
+                                   
+                   </div>
                     <div className={cn(s["box"])}>
                         <button 
                         className={cn(s["btn"])}
@@ -97,8 +114,7 @@ const AddtoCart = observer((props:IProps) => {
                         В корзину
                         </button>
                    </div>
-                   </div>
-                   
+                   </>
                    )
                     
                     :
