@@ -1,12 +1,11 @@
 import React,{Dispatch, useState} from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
-import {Avatar} from "components/Navbar/Avatar";
+import {Avatar} from "./components/Avatar";
+import {AddtoCart} from "./components/AddtoCart";
 import {NavLink} from "react-router-dom";
 import * as route from "config/const";
 import {Navmenu}  from "../Navmenu";
-import {CartSmallProduct} from "components/Navbar/CartSmallProduct";
-
 import cart_data from "config/constants/cart_data";
 
 interface IProps {
@@ -20,6 +19,8 @@ interface IProps {
 
 const Navbar = (props:IProps) =>{
  
+    const [cartVisible,setCartVisible] = useState(false);
+    
    let {isAuthenticated,setVisibleModal,isVisibleModal} = props;
    let [isCartWindowOpen, openSmallCartWindow] = useState(false);
      
@@ -78,12 +79,18 @@ const Navbar = (props:IProps) =>{
      
          </li>
            
-         <li className={cn(s.nav__item)}>
+         <li 
+         className={cn(s.nav__item)}
+         onMouseOver={()=>{setCartVisible(true)}}
+         onMouseOut={()=>{setCartVisible(false)}}
+         >
           <NavLink 
-            to="#"
-            className={cn(s.Navbar__icon)}
             onClick={() => openSmallCartWindow(!isCartWindowOpen)}
-            >
+
+            to="/basket"
+            className={cn({[s.Navbar__icon]:true,
+                           [s.cart]:true})} 
+          >
                 <svg 
                     viewBox="0 0 32 32" 
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,43 +106,15 @@ const Navbar = (props:IProps) =>{
                 </g>
                 </svg>
             </NavLink>
-            
+            <AddtoCart isVisible={cartVisible}/>
          </li>
-           
-        </ul>
+          </ul>
       </nav>
-  
-    
-    
      </div>
-        
-        <Navmenu 
+       <Navmenu 
         isVisibleModal = {isVisibleModal}
         setVisibleModal={setVisibleModal}
         />
-        { isCartWindowOpen && cart_data.length > 0 ?
-        
-        <div className={cn(s.cart_small)}>
-            { cart_data.map((item:any, index: any) => (
-                  <div key={index}>
-                      <CartSmallProduct 
-                        id={item.id}
-                        title={item.title}
-                        description={item.description}
-                        quantity={item.quantity}
-                        price={item.price}
-                        img={item.img}
-                      />
-                  </div>
-                ))
-            }
-              <p className={cn(s.basket_all_quantity)}>Общее количество: 3</p>
-              <p className={cn(s.basket_all_quantity)}>Общая сумма: 450 рублей</p> 
-        </div> 
-          : <div className={isCartWindowOpen ? cn(s.cart_small) : cn(s.non_open)}> Корзина пуста </div>
-          }
-        
-
   </div>     
         
      

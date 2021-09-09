@@ -3,29 +3,53 @@ import cn from "classnames";
 import s from "./style.module.scss";
 import path from "path";
 import {useHistory} from "react-router-dom";
+import {useProductStore} from "hooks";
+import {getSnapshot} from "mobx-state-tree";
 
 export type cardData ={
-    id:number,
-    img:{
-        src:string,
-        alt:string
-    }
+  id:number,
+  name:string,
+  price:number,
+  rate:number,
+  img:string[],
+  quantity:number
 }
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  cardData?:cardData
+  id:number,
+  name:string,
+  price:number,
+  rate:number,
+  img:string[],
+  quantity:number,
 }
 
-
 const Card = (props:IProps) => {
-    const {cardData} = props;
+    const {id,
+            name,
+            price,
+            rate,
+            img,
+            quantity} = props;
     const history = useHistory();
+    const productsStore = useProductStore();
+    const handleClickCart = (event: React.MouseEvent<HTMLElement>):void=>{
+         event.stopPropagation();
+         productsStore.cart.add(
+            id,
+            name,
+            price,
+            rate,
+            img,
+            quantity);
+          }
+    
     const clickHandler =(e: React.MouseEvent<HTMLElement>):void =>{
        e.stopPropagation();
-       let route = "/info/"+`${cardData?.id}` ?? "/";
+       let route = "/info/"+`${id}` ?? "/";
        history.push(route);
     }
     
@@ -36,15 +60,20 @@ const Card = (props:IProps) => {
        onClick={clickHandler}
        >
         <div className={cn(s.card__item)}>
-         <img className={cn(s['card__item--img'])} src={path.resolve(__dirname,`./images/cards/${cardData?.img?.src}`)} alt={cardData?.img?.alt} />
+         <img className={cn(s['card__item--img'])} src={img[0]} alt={name} />
          </div> 
          <div className={cn(s.card__item)}>       
-       <span className={cn(s.card__box_item,s['card__box_item--title'])}>Коробочка с чем то вкусным</span>
-       <span className={cn(s.card__box_item,s['card__box_item--weight'])}> 200 г</span>
-       <span className={cn(s.card__box_item,s['card__box_item--price'])}>180 р</span>
+       <span className={cn(s.card__box_item,s['card__box_item--title'])}>{name}</span>
+       <span className={cn(s.card__box_item,s['card__box_item--weight'])}> {quantity}&nbsp;г</span>
+       <span className={cn(s.card__box_item,s['card__box_item--price'])}>{price}&nbsp;р</span>
        <span className={cn(s.card__box_item,s['card__box_item--info'])}>Новинка</span>
        </div>
-          <button className={cn(s.btn,s.btn__order)}>В корзину</button>
+          <button 
+                className={cn(s.btn,s.btn__order)}
+                onClick = {handleClickCart}
+                >
+                В корзину
+                </button>
        </div>
        )
        

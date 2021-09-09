@@ -35,7 +35,7 @@ const slideToShow = Math.min(Math.floor(window.screen.width/280),4);
              slidesToShow = {slideToShow}
           >
             {productList && productList.map((cardData)=>        
-                 <Card key = {cardData.id} cardData={cardData} />
+                 <Card key = {cardData.id} {...cardData} />
             )}
         </Slider>
         </div>
