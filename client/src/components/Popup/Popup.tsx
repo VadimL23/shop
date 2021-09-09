@@ -19,15 +19,15 @@ type IProps = {
 
 const Popup =  observer((props:IProps) => {
     const {children,isVisibleModal,setVisibleModal} = props; 
-        
     const inputRef = useRef<HTMLInputElement>(null);
-    
     const productStore = useProductStore(); 
-      
     const [snapshot,setSnapshot] = useState(getSnapshot(productStore));
-    
     onSnapshot(productStore,(sn)=>{setSnapshot(sn)})
-
+   
+    useEffect(()=>{
+    const body = document.querySelector('body');
+       if(body) {body.style.overflow = isVisibleModal ? 'hidden' : 'auto';}
+    },[isVisibleModal])
     
     useEffect(()=>{
         if (inputRef.current) {inputRef.current.focus();}
@@ -44,7 +44,7 @@ const Popup =  observer((props:IProps) => {
         {(snapshot.typesOfProduct.length == 0) ?
         (<Preloader isVisible={true}/>)
             :
-        (<SearchForm />)
+        (<SearchForm ref = {inputRef} />)
         }
           
            {children}

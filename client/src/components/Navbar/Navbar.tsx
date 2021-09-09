@@ -1,4 +1,4 @@
-import React,{Dispatch, useState} from "react";
+import React,{Dispatch, useState, useMemo} from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
 import {Avatar} from "./components/Avatar";
@@ -8,32 +8,25 @@ import * as route from "config/const";
 import {Navmenu}  from "../Navmenu";
 import cart_data from "config/constants/cart_data";
 
+
 interface IProps {
     isAuthenticated:boolean;
     setVisibleModal:Dispatch<any>;
     isVisibleModal:boolean;
-    //isCartWindowOpen:boolean;
 }
 
 
-
 const Navbar = (props:IProps) =>{
- 
     const [cartVisible,setCartVisible] = useState(false);
-    
-   let {isAuthenticated,setVisibleModal,isVisibleModal} = props;
-   let [isCartWindowOpen, openSmallCartWindow] = useState(false);
-     
+    const {isAuthenticated,setVisibleModal,isVisibleModal} = props;
+ 
     return ( 
-     
     <div className={cn(s.menu__wrapper)}>
-        
      <div className={cn(s.nav, s.contain)}> 
      <Avatar />  
        <nav>
         <ul className={cn(s.nav__links)}>
-           
-         <li className={cn(s.nav__item)}>
+           <li className={cn(s.nav__item)}>
              {isAuthenticated ? 
          <NavLink 
            to={"/"}
@@ -76,17 +69,13 @@ const Navbar = (props:IProps) =>{
             </svg>
          </NavLink>
          }
-     
-         </li>
-           
+        </li>
          <li 
          className={cn(s.nav__item)}
-         onMouseOver={()=>{setCartVisible(true)}}
-         onMouseOut={()=>{setCartVisible(false)}}
+         onMouseEnter={(e)=>{ setCartVisible(true)}}
+         onMouseLeave={(e)=>{ setCartVisible(false)}}
          >
           <NavLink 
-            onClick={() => openSmallCartWindow(!isCartWindowOpen)}
-
             to="/basket"
             className={cn({[s.Navbar__icon]:true,
                            [s.cart]:true})} 
@@ -116,8 +105,6 @@ const Navbar = (props:IProps) =>{
         setVisibleModal={setVisibleModal}
         />
   </div>     
-        
-     
  )   
 }
 

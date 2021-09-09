@@ -15,14 +15,21 @@ body {
     background-color: #f7f5f2;
 }
 
+
 header {
 
 }
 
-::-webkit-scrollbar {
-    width: 0;
+body::-webkit-scrollbar {
+    width: 0px;
 }
+
+*::-webkit-scrollbar-thumb{
+     background-color: aqua;   
+    }
 
 .main_title{
     color:blue;
 }
+
+
