@@ -8,7 +8,8 @@ interface IProps {
   id:number,
   title:string, 
   description:string, 
-  quantity:number, 
+  quantity:number,
+  price:number,
   // comments:string, 
   img: any,
 }
@@ -33,7 +34,7 @@ return (
           <p className={cn(s.product__partNumber)}>Арт. {props.id}</p>
           <p className={cn(s.product__title)}>{props.title}</p>
           <p className={cn(s.product__size)}>100 гр</p>
-          <p className={cn(s.price)}>150 рублей</p>
+          <p className={cn(s.price)}>{props.price} рублей</p>
           <p className={cn(s.product__quantity)}>{props.quantity}</p>
           <div className={cn(s.buttons__row)}>
             <button>Увеличить</button>

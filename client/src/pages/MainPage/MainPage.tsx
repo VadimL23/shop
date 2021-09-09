@@ -5,10 +5,12 @@ import {Card, cardData} from "components/Card";
 import {MainSlider} from "components/MainSlider";
 import {ProductsSlider} from "components/ProductsSlider";
 import {CustomCard} from "components/CustomCard";
-import cardList from "config/constants/card";
 import sliderList from "config/constants/slider";
 import {useStore} from "hooks";
+import {useProductStore} from "hooks";
 import {observer} from "mobx-react-lite";
+import {getSnapshot} from "mobx-state-tree";
+import {Preloader} from "components/Preloader";
 
 
 interface IProps {
@@ -16,19 +18,13 @@ interface IProps {
 }
 
 
-const MainPage = observer((props:IProps) =>{
+   const MainPage = observer((props:IProps) =>{
    const {className} = props; 
    const {isAuthenticated} = useStore();
- 
-    
-    const cards = (count:number):ReactElement[]=>{        
-        const temp:ReactElement[] = [];
-        for (let i = 0; i<count;i++){
-            temp.push(<CustomCard />)
-        }
-        return temp;
-        }
-    
+   const productsStore = useProductStore();
+   const {typesOfProduct} = getSnapshot(productsStore);
+
+   console.log(getSnapshot(productsStore.cart));
     
     return (
        <>
@@ -36,18 +32,43 @@ const MainPage = observer((props:IProps) =>{
           sliderList={sliderList}
          />
         
-        <ProductsSlider productList = {cardList}>
-           Новинки
+        {(typesOfProduct.length == 0) ?
+        (<Preloader isVisible={true} />)
+        :
+        (
+         <>
+         <ProductsSlider productList = {typesOfProduct[0].productsList}>
+           {typesOfProduct[0].name}
         </ProductsSlider>
         
-         <ProductsSlider productList = {cardList}>
-            Популярные товары
+         <ProductsSlider productList = {typesOfProduct[1].productsList}>
+            {typesOfProduct[1].name}
         </ProductsSlider>
+        </>)
+        }
         
-        <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",flex:"1 0 21%"}}>
-         {cards(4)}
+        {(typesOfProduct.length == 0) ?
+        
+        (<Preloader isVisible={true} />)
+        :
+        (
+         <React.Fragment>
+         <h2 className={s.product__list__title}>
+             {typesOfProduct[0].name}
+         </h2>
+         <div className={s.product__list}>
+            {
+                 typesOfProduct[0].productsList.map((el)=>{
+                    const {id,name,rate,price,img,quantity} = el;
+                     return( 
+                     <CustomCard key={el.id}
+                       {...el}
+                     />)
+                 })
+            }
         </div>
-        
+        </React.Fragment>
+        )}
     </>
     )
     

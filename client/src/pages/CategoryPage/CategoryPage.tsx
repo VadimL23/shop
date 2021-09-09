@@ -37,9 +37,7 @@ const CategoryPage = observer((props:IProps) => {
         <Location />
         
     <div className={cn(s.page)}>
-       
-            
-             
+                 
          {(typeof id ==="undefined")?
           (<div className={cn(s.panel__content)}>
              <CategoryPanel nameList={getTypesOfProducts()}/>

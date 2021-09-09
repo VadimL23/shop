@@ -2,7 +2,7 @@ import React, { useState, Dispatch,  useEffect } from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
 import {Link} from "react-router-dom";
-import {Burger} from "../Navbar/Burger";
+import {Burger} from "../Navbar/components/Burger";
 
 interface IProps{
     setVisibleModal:Dispatch<any>;

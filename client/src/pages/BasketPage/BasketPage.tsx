@@ -27,6 +27,7 @@ const BasketPage = (props:any) => {
                         title={item.title}
                         description={item.description}
                         quantity={item.quantity}
+                        price={item.price}
                         img={item.img}
                       />
                   </div>

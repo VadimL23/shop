@@ -1,28 +1,28 @@
-import React,{Dispatch} from "react";
+import React,{Dispatch, useState} from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
-import {Avatar} from "components/Navbar/Avatar";
+import {Avatar} from "./components/Avatar";
+import {AddtoCart} from "./components/AddtoCart";
 import {NavLink} from "react-router-dom";
 import * as route from "config/const";
 import {Navmenu}  from "../Navmenu";
-
-import basket from "assets/Navbar/basket.svg";
-import log_out from "assets/Navbar/log_out.svg";
-import log_in from "assets/Navbar/log_in.svg";
-import private_page from "assets/Navbar/private_page.svg";
-
+import cart_data from "config/constants/cart_data";
 
 interface IProps {
     isAuthenticated:boolean;
     setVisibleModal:Dispatch<any>;
     isVisibleModal:boolean;
+    //isCartWindowOpen:boolean;
 }
 
 
 
 const Navbar = (props:IProps) =>{
  
+    const [cartVisible,setCartVisible] = useState(false);
+    
    let {isAuthenticated,setVisibleModal,isVisibleModal} = props;
+   let [isCartWindowOpen, openSmallCartWindow] = useState(false);
      
     return ( 
      
@@ -79,11 +79,18 @@ const Navbar = (props:IProps) =>{
      
          </li>
            
-         <li className={cn(s.nav__item)}>
+         <li 
+         className={cn(s.nav__item)}
+         onMouseOver={()=>{setCartVisible(true)}}
+         onMouseOut={()=>{setCartVisible(false)}}
+         >
           <NavLink 
+            onClick={() => openSmallCartWindow(!isCartWindowOpen)}
+
             to="/basket"
-            className={cn(s.Navbar__icon)} 
-            >
+            className={cn({[s.Navbar__icon]:true,
+                           [s.cart]:true})} 
+          >
                 <svg 
                     viewBox="0 0 32 32" 
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,16 +106,12 @@ const Navbar = (props:IProps) =>{
                 </g>
                 </svg>
             </NavLink>
+            <AddtoCart isVisible={cartVisible}/>
          </li>
-           
-        </ul>
+          </ul>
       </nav>
-  
-    
-    
      </div>
-        
-        <Navmenu 
+       <Navmenu 
         isVisibleModal = {isVisibleModal}
         setVisibleModal={setVisibleModal}
         />

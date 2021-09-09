@@ -1,4 +1,4 @@
-import {types, getSnapshot, flow} from "mobx-state-tree";
+import {types, getSnapshot, flow, Instance, getType} from "mobx-state-tree";
 import {useApi} from "hooks";
 import axios from "axios";
 
@@ -10,10 +10,14 @@ const NameOfProduct = types.model(
     name:types.optional(types.string,''),
     price:types.optional(types.number,0),
     rate:types.optional(types.number,0),
-    img:types.optional(types.array(types.string),[])
+    img:types.optional(types.array(types.string),[]),
+  //  weight:types.optional(types.enumeration("weight",["100 г","500 г","1 кг"]),"100 г"),
+    quantity:types.optional(types.number,0)
 });        
         
-        
+export interface INameOfProduct extends Instance<typeof NameOfProduct> {};
+
+
 const TypesOfProduct = types.model(
 "typesOfProduct",
     {
@@ -49,11 +53,47 @@ const RateOfProduct = types.model(
 
 
 
+const Cart = types.model(
+    "Cart",
+    {
+     productList:types.optional(types.array(NameOfProduct),[])   
+    })
+.actions(self=>{
+    return{
+        add:function(id:number, 
+                      name:string, 
+                      price:number, 
+                      rate:number, 
+                      img:string[], 
+                      quantity:number)
+        {
+          self.productList.push(NameOfProduct.create({id,name,price,rate,img,quantity})) 
+       },
+        clear:function(){
+            self.productList.length = 0;
+        },
+        delete(id:number){
+            if (self.productList.findIndex((el)=>id===el.id) != -1){
+              self.productList.splice(self.productList.findIndex((el)=>id===el.id),1);  
+            }
+        }
+        
+    }
+})
+.views(self=>{
+    return {
+        getAll:function(){
+            return getSnapshot(self);
+        }
+    }
+})
+
 
 const ProductStore = types.model(
 "mainStore",{
     typesOfProduct:types.optional(types.array(TypesOfProduct),[]),
-    active:types.safeReference(TypesOfProduct)
+    active:types.safeReference(TypesOfProduct),
+    cart:types.optional(Cart,{})
  }
 ).actions(self=>{
     return {
@@ -64,8 +104,7 @@ const ProductStore = types.model(
     }),
     afterCreate:function(){
     this.load(); 
-        console.log(getSnapshot(self));
-    }
+     }
 }})
 .views(self=>({
     getTypesOfProducts:function(){
@@ -84,5 +123,6 @@ const ProductStore = types.model(
 
 export {
     ProductStore,
-    NameOfProduct
+    NameOfProduct,
+
 }
