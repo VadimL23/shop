@@ -1,21 +1,19 @@
-import React,{Dispatch} from "react";
+import React,{Dispatch, useState} from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
 import {Avatar} from "components/Navbar/Avatar";
 import {NavLink} from "react-router-dom";
 import * as route from "config/const";
 import {Navmenu}  from "../Navmenu";
+import {CartSmallProduct} from "components/Navbar/CartSmallProduct";
 
-import basket from "assets/Navbar/basket.svg";
-import log_out from "assets/Navbar/log_out.svg";
-import log_in from "assets/Navbar/log_in.svg";
-import private_page from "assets/Navbar/private_page.svg";
-
+import cart_data from "config/constants/cart_data";
 
 interface IProps {
     isAuthenticated:boolean;
     setVisibleModal:Dispatch<any>;
     isVisibleModal:boolean;
+    //isCartWindowOpen:boolean;
 }
 
 
@@ -23,6 +21,7 @@ interface IProps {
 const Navbar = (props:IProps) =>{
  
    let {isAuthenticated,setVisibleModal,isVisibleModal} = props;
+   let [isCartWindowOpen, openSmallCartWindow] = useState(false);
      
     return ( 
      
@@ -81,8 +80,9 @@ const Navbar = (props:IProps) =>{
            
          <li className={cn(s.nav__item)}>
           <NavLink 
-            to="/basket"
-            className={cn(s.Navbar__icon)} 
+            to="#"
+            className={cn(s.Navbar__icon)}
+            onClick={() => openSmallCartWindow(!isCartWindowOpen)}
             >
                 <svg 
                     viewBox="0 0 32 32" 
@@ -99,6 +99,7 @@ const Navbar = (props:IProps) =>{
                 </g>
                 </svg>
             </NavLink>
+            
          </li>
            
         </ul>
@@ -112,6 +113,29 @@ const Navbar = (props:IProps) =>{
         isVisibleModal = {isVisibleModal}
         setVisibleModal={setVisibleModal}
         />
+        { isCartWindowOpen && cart_data.length > 0 ?
+        
+        <div className={cn(s.cart_small)}>
+            { cart_data.map((item:any, index: any) => (
+                  <div key={index}>
+                      <CartSmallProduct 
+                        id={item.id}
+                        title={item.title}
+                        description={item.description}
+                        quantity={item.quantity}
+                        price={item.price}
+                        img={item.img}
+                      />
+                  </div>
+                ))
+            }
+              <p className={cn(s.basket_all_quantity)}>Общее количество: 3</p>
+              <p className={cn(s.basket_all_quantity)}>Общая сумма: 450 рублей</p> 
+        </div> 
+          : <div className={isCartWindowOpen ? cn(s.cart_small) : cn(s.non_open)}> Корзина пуста </div>
+          }
+        
+
   </div>     
         
      

@@ -18,7 +18,7 @@ interface IProps {
 //   item:string, 
 // }
 
-const CartProduct = (props:IProps) =>{
+const CartSmallProduct = (props:IProps) =>{
 
 return ( 
 <>
@@ -35,10 +35,10 @@ return (
           <p className={cn(s.product__title)}>{props.title}</p>
           <p className={cn(s.product__size)}>100 гр</p>
           <p className={cn(s.price)}>{props.price} рублей</p>
-          <p className={cn(s.product__quantity)}>{props.quantity}</p>
+          <p className={cn(s.product__quantity)}>{props.quantity} упак.</p>
           <div className={cn(s.buttons__row)}>
-            <button>Увеличить</button>
-            <button>Уменьшить</button>
+            <button>+</button>
+            <button>-</button>
           </div>
                     
         </div>
@@ -47,4 +47,4 @@ return (
 )   
 }
 
-export {CartProduct}
+export {CartSmallProduct}
