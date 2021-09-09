@@ -1,0 +1,61 @@
+@import "../../../../styles/style.scss";
+
+.burger {
+    display: flex;
+    justify-content: flex-start;
+    //position: absolute;
+
+    .lines{
+        display: none;
+        border-bottom: 14px double black; 
+        border-top: 5px solid black; 
+        content:"";
+        height: 22px; 
+        width:25px;
+
+        @include phone{
+
+            & {
+                display: flex;
+            }
+        } 
+    }
+    .burger_links {
+        display: block;
+        position: fixed;
+        //@at-root: relative;
+        top: 170px;
+        //left: -100%;
+        width: 100px;
+        margin: 0;
+        //padding: 80px 0;
+        list-style: none;
+        background-color: #ECEFF1;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+        transition-duration: .25s;
+        z-index: 1000;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        @include desk{
+
+            & {
+                display: none;
+            }
+        }
+
+
+        .nav__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 7px 0;
+            font-size: 16px;
+
+        }
+    }
+
+    .non_links {
+        display: none;
+    }
+} 
