@@ -5,15 +5,21 @@ import {Product} from "components/Product";
 import {Location} from "components/Location";
 import product_data from "config/constants/product_data";
 import path from "path";
-
+import {useProductStore} from "hooks";
+import {getSnapshot} from "mobx-state-tree";
+import {observer} from "mobx-react-lite";
 type IProps = {
   //onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   //className?: string,
   //children?: React.ReactNode,
 }
 
-const InfoPage = (props: any) => {
+const InfoPage = observer((props: any) => {
   const id = props.match.params.id; 
+  const productStore = useProductStore();
+//  const {id, name, quantity, price, rate} =  productStore.getProductById(13);
+    console.log(`product `, productStore.getAllProducts());
+    
   return (
     <>
       <Location />
@@ -26,7 +32,7 @@ const InfoPage = (props: any) => {
       />
     </>
     )
-  }
+  })
        
 export {
       InfoPage,
