@@ -25,7 +25,7 @@ const Navmenu = (props:IProps) =>{
           <Link to={"/"} className={cn(s.chapter)}>Доставка</Link>
         </li>
         <li className={cn(s.nav__item)}>
-          <Link to={"/"} className={cn(s.chapter)}>О нас</Link>
+          <Link to={"/about"} className={cn(s.chapter)}>О нас</Link>
         </li >
         <li className={cn(s.nav__item)}>
           <Link to={"/"} className={cn(s.chapter)}>Акции</Link>

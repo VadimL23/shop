@@ -6,3 +6,4 @@ export const BASKET_ROUTE = "/basket";
 export const INFO_ROUTE = "/info";
 export const AUTH_ROUTE = "/auth";
 export const CATEGORY_ROUTE = "/category";
+export const ABOUT_ROUTE = "/about";
