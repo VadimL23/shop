@@ -20,7 +20,8 @@ type IProps = {
 const SearchCard = (props:IProps) => {
     const {product} = props; 
     const {id, name, price, rate, img} = product;
- 
+    
+    
     return (
       
            <div className={cn(s.search__card)}>
