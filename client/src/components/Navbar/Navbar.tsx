@@ -71,7 +71,7 @@ const Navbar = (props:IProps) =>{
          }
         </li>
          <li 
-         className={cn(s.nav__item)}
+         className={cn(s.nav__item,{[s["nav_item--bascket"]]:cartVisible})}
          onMouseEnter={(e)=>{ setCartVisible(true)}}
          onMouseLeave={(e)=>{ setCartVisible(false)}}
          >

@@ -2,6 +2,14 @@ import {types, getSnapshot, flow, Instance, getType} from "mobx-state-tree";
 import {useApi} from "hooks";
 import axios from "axios";
 
+const MainSlider = types.model("MainSlider",{
+     id:types.optional(types.number,0),   
+     img:types.optional(types.string,""),
+     title:types.optional(types.string,""),
+     subtitle:types.optional(types.string,""),
+     background:types.optional(types.string,""),
+     color:types.optional(types.string,"")
+})
 
 const NameOfProduct = types.model(
 "NameOfProduct",
@@ -10,6 +18,7 @@ const NameOfProduct = types.model(
     name:types.optional(types.string,''),
     price:types.optional(types.number,0),
     rate:types.optional(types.number,0),
+    description:types.optional(types.string,""),
     img:types.optional(types.array(types.string),[]),
   //  weight:types.optional(types.enumeration("weight",["100 г","500 г","1 кг"]),"100 г"),
     quantity:types.optional(types.number,0)
@@ -93,14 +102,15 @@ const ProductStore = types.model(
 "mainStore",{
     typesOfProduct:types.optional(types.array(TypesOfProduct),[]),
     active:types.safeReference(TypesOfProduct),
-    cart:types.optional(Cart,{})
+    cart:types.optional(Cart,{}),
+    mainSlider:types.optional(types.array(MainSlider),[])
  }
 ).actions(self=>{
     return {
     load:flow(function*(){
-     const t = yield axios.get("http://localhost:3001/category");
-     self.typesOfProduct = t.data;
-        
+     self.typesOfProduct = yield axios.get("http://localhost:3001/category").then((resp)=>resp.data); 
+     self.mainSlider= yield axios.get("http://localhost:3001/mainSlider").then((resp)=>resp.data);   
+
     }),
     afterCreate:function(){
     this.load(); 
@@ -114,9 +124,14 @@ const ProductStore = types.model(
     return getSnapshot(self).typesOfProduct.map((el)=>{
            return el.productsList;
        })},
-    getProducts:function(prod:number){
-        return 
-    }
+    getProductById:function(id:number){
+                
+//        return self.getAllProducts().find((el)=>el.id == id);
+//        const result = self.typesOfProduct?.find((el)=>el.productsList.find((product)=>
+//            product.id == id
+//            ))
+//        if (typeof result !== "undefined") {return getSnapshot(result)}
+      }
 
     
 }));

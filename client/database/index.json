@@ -12,6 +12,7 @@
                         "rate":3,
                         "weight":100,
                         "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/nature"]},
                         
                         {"id":2, 
@@ -20,6 +21,7 @@
                         "rate":5,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/nature"]},
                         
                         {"id":3, 
@@ -28,6 +30,7 @@
                          "rate":4,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/nature"]},
 
                         {"id":4, 
@@ -36,6 +39,7 @@
                          "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/nature"]},
 
                         {"id":5, 
@@ -44,6 +48,7 @@
                          "rate":1,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/nature"]},
 
                         {"id":6, 
@@ -52,6 +57,7 @@
                          "rate":2,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/nature"]}
                             ]
         },
@@ -67,6 +73,7 @@
                         "rate":3,
                            "weight":100,
                            "quantity":100,
+                           "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/nature"]},
                         
                         {"id":8, 
@@ -75,6 +82,7 @@
                         "rate":5,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/sports"]},
                         
                         {"id":9, 
@@ -83,6 +91,7 @@
                          "rate":4,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":10, 
@@ -91,6 +100,7 @@
                          "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":11, 
@@ -99,6 +109,7 @@
                          "rate":1,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":12, 
@@ -107,7 +118,28 @@
                          "rate":2,
                          "weight":100,
                          "quantity":100,
-                         "img":["http://lorempixel.com/285/280/sports"]}]},
+                         "description":"Описание очень вкусной и полезной продукции",
+                         "img":["http://lorempixel.com/285/280/sports"]},
+                         
+                         {"id":11, 
+                         "name":"Nuts Nuts Nuts ", 
+                         "price":123, 
+                         "rate":1,
+                         "weight":100,
+                         "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
+                         "img":["http://lorempixel.com/285/280/sports"]},
+
+                        {"id":12, 
+                         "name":"Nuts Nuts Nuts", 
+                         "price":123,
+                         "rate":2,
+                         "weight":100,
+                         "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
+                         "img":["http://lorempixel.com/285/280/sports"]}
+                        
+                        ]},
         
         {"id":3,
            "img":[
@@ -120,6 +152,7 @@
                         "rate":3,
                           "weight":100,
                           "quantity":100,
+                          "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/cats"]},
                         
                         {"id":14, 
@@ -128,6 +161,7 @@
                         "rate":5,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/cats"]},
                         
                         {"id":15, 
@@ -136,6 +170,7 @@
                          "rate":4,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/cats"]},
 
                         {"id":16, 
@@ -144,6 +179,7 @@
                          "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/cats"]},
 
                         {"id":17, 
@@ -152,6 +188,7 @@
                          "rate":1,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/cats"]},
 
                         {"id":18, 
@@ -160,6 +197,7 @@
                          "rate":2,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/cats"]}]},
         
         {"id":4,
@@ -173,6 +211,7 @@
                         "rate":3,
                           "weight":100,
                           "quantity":100,
+                          "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/fashion"]},
                         
                         {"id":20, 
@@ -181,6 +220,7 @@
                         "rate":5,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/fashion"]},
                         
                         {"id":21, 
@@ -189,6 +229,7 @@
                          "rate":4,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/fashion"]},
 
                         {"id":22, 
@@ -197,6 +238,7 @@
                          "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/fashion"]},
 
                         {"id":23, 
@@ -205,6 +247,7 @@
                          "rate":1,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/fashion"]},
 
                         {"id":24, 
@@ -213,6 +256,7 @@
                          "rate":2,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/fashion"]}]},
         
         {"id":5,
@@ -241,6 +285,7 @@
                         "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/nature"]},
                         
                         {"id":2, 
@@ -249,6 +294,7 @@
                         "rate":5,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                         "img":["http://lorempixel.com/285/280/sports"]},
                         
                         {"id":3, 
@@ -257,6 +303,7 @@
                          "rate":4,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":4, 
@@ -265,6 +312,7 @@
                          "rate":3,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":5, 
@@ -273,6 +321,7 @@
                          "rate":1,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]},
 
                         {"id":6, 
@@ -281,6 +330,53 @@
                          "rate":2,
                          "weight":100,
                          "quantity":100,
+                         "description":"Описание очень вкусной и полезной продукции",
                          "img":["http://lorempixel.com/285/280/sports"]}
-                            ]
+                        ],
+
+
+"mainSlider": [
+        {
+         "id":1,   
+         "img":"http://lorempixel.com/735/430/sports",
+         "title":"Новинки недели",
+         "subtitle":"Самое вкусное спелое веселое блестящее и только у нас в магазине",
+         "background":"#29ABE2",
+         "color":"#fff"
+      },
+        {
+         "id":2,   
+         "img":"http://lorempixel.com/735/430/nature",
+         "title":"Картинка со всякими вкуснятинами",
+         "subtitle":"Сьешь меня и будешь доволен жизнью - перекус это прекрасно!",
+         "background":"#3d5f8a",
+         "color":"#fff"
+      },
+        {
+         "id":3,
+         "img":"http://lorempixel.com/735/430/business",
+         "title":"Спелое сочное манго",
+         "subtitle":"Сладкая нежная мякоть и непревзойденный аромат - насладитесь желтым манго на пике вкуса",
+         "background":"#006c43",
+         "color":"#fff"
+      },
+        { 
+         "id":4,   
+         "img":"http://lorempixel.com/735/430/people",
+         "title":"Яблоки и карандаши",
+         "subtitle":"Прикольное сочетание на любой день недели",
+         "background":"#3d5f8a",
+         "color":"#fff"
+      },
+        { 
+         "id":5,   
+         "img":"http://lorempixel.com/735/430/food",
+         "title":"Скидки на шоколадное мороженное",
+         "subtitle":"Пломбир во взбитой глазури, апельсин с ишней - что выберите?",
+         "background":"#A6CE39",
+         "color":"#fff"
+      }
+          
+      ]
+ 
 }

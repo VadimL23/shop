@@ -126,3 +126,17 @@
     position: relative;
 
 }
+
+.nav_item--bascket{
+    position: relative;
+    
+    &:before{
+        position: absolute;
+        content:'';
+        background-color: rgba(0,0,0,0);
+        width:200%;
+        height:300%;
+        left:-50%;
+        
+    }
+}
