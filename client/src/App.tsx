@@ -20,8 +20,6 @@ const {isAuthenticated} = useStore();
 const routes = useRoutes(isAuthenticated);
 const [modal,setModal] = useState(false);
 const [isOverflow,setOverflow] = useState(false);
-
-    console.log(`isOOOOver`, isOverflow);
     
   return (
     <Theme.Provider value={{isOverflow,setOverflow}}>

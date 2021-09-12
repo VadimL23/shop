@@ -1,38 +1,40 @@
-import React from "react";
+import React,{ChangeEvent, useState} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import star_icon from "assets/svg/star_icon.svg";
-import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
+import {ICart} from "store";
+import {useProductStore} from "hooks";
 
-interface IProps {
-  id:number,
-  name:string, 
+interface IProps extends ICart {
   description:string, 
-  quantity:number,
-  price:number,
-  rate:number,
-  img: string[],
 }
 
 const options = ()=>{
    const arr = [];
-    for(let i = 0; i<100; i++){
-    arr.push(<option key={i} defaultValue={1} value={i}>{i+1}</option>);
+    for(let i = 1; i<100; i++){
+    arr.push(<option key={i} value={i}>{i}</option>);
     }
     return arr;
 }
 
 const CartProduct = (props:IProps) =>{
-const { id,
+    const { id,
         name, 
         description, 
         quantity,
         price,
         rate,
-        img} =props;
-const productsStore = useProductStore();
-
+        img,
+        weight} = props;
+    const productsStore = useProductStore();
+    const [quantitySelect, setQuantitySelect] = useState(quantity);
+    const handlerSelect = (event:ChangeEvent<HTMLSelectElement>):void=>{
+        setQuantitySelect(+event.target.value);
+        productsStore.cart.setQuantity(id,quantitySelect);
+    }
+    
+ 
     
 return ( 
 <>
@@ -49,11 +51,14 @@ return (
         <div className={cn(s["product_quantity"])}>
         <span className={cn(s["subtitle"])}>Фасовка</span>
          <span className={cn(s["product__content__span"],
-                              s["product__content__span--quantity"])}>{quantity}&nbsp;г</span>
+                              s["product__content__span--quantity"])}>{weight}</span>
         </div>   
         <div className={cn(s["product_select"])}>
              <span className={cn(s["subtitle"])}>Кол-во</span>
-             <select className={cn(s.cart__selsect)}>
+             <select
+             onChange = {handlerSelect}  
+             defaultValue = {quantitySelect}
+             className={cn(s.cart__select)}>
               {
                options()
               }
@@ -62,7 +67,9 @@ return (
          <div className={cn(s["product_summ"])}>
              <span className={cn(s["subtitle"])}>Итого:</span>
               <span className={cn(s["product__content__span"],
-                              s["product__content__span--quantity"])}>100 р</span>
+                              s["product__content__span--quantity"])}>{
+                      productsStore.cart.getSummById(id)
+                      }&nbsp;р</span>
         </div>
            <div className={cn(s["product_summ"])}>
              

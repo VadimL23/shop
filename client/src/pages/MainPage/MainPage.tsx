@@ -1,7 +1,7 @@
-import React,{ReactElement} from "react";
+import React,{ReactElement, useCallback} from "react";
 import s from "./style.module.scss";
 import cn from "classnames";
-import {Card, cardData} from "components/Card";
+import {Card} from "components/Card";
 import {MainSlider} from "components/MainSlider";
 import {ProductsSlider} from "components/ProductsSlider";
 import {CustomCard} from "components/CustomCard";
@@ -24,7 +24,15 @@ interface IProps {
    const productsStore = useProductStore();
    const {typesOfProduct} = getSnapshot(productsStore);
 
-   console.log(getSnapshot(productsStore.cart));
+    const Cards = useCallback(()=>{
+        return  typesOfProduct[0].productsList.map((el)=>{
+                    const {id,name,rate,price,img,quantity} = el;
+                     return( 
+                     <CustomCard key={el.id}
+                       {...el}
+                     />)
+                 })
+    },[typesOfProduct]);
     
     return (
        <>
@@ -58,13 +66,7 @@ interface IProps {
          </h2>
          <div className={s.product__list}>
             {
-                 typesOfProduct[0].productsList.map((el)=>{
-                    const {id,name,rate,price,img,quantity} = el;
-                     return( 
-                     <CustomCard key={el.id}
-                       {...el}
-                     />)
-                 })
+            Cards()
             }
         </div>
         </React.Fragment>

@@ -27,10 +27,7 @@ const AddtoCart = observer((props:IProps) => {
     const body = document.querySelector('body');
        if(body) {body.style.overflow = isVisible ? 'hidden' : 'auto';}
     },[isVisible])    
-   
-    
-    console.log(`isVisible`, isVisible);
-    console.log(`isOverflow`, theme?.isOverflow);
+
     
     return (
        <div id={"addtoCart"} 

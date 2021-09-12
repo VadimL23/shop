@@ -33,42 +33,47 @@ grid-column: 1;
 .product_select{
     grid-column: 5;
     align-items: center;
-  
+    
 }
 
 .product_quantity{
     grid-column: 4;
 }
 
-.cart__selsect{
+.cart__select{
+    @include select; 
     min-width: 80px;
     height: 3rem;
     font-size: 2rem;
     text-align: center;
+    line-clamp: 3;
+    @include scrollbar;
     
+ 
     
-@include scrollbar;
 }
 
-.cart__selsect > option {
+.cart__select > option {
     max-height: 30px;
     border: 6px;
 
     padding-right: 15px;
     height: 31px;
     width: 220px;
+    @include option;
 }
 
-.cart__selsect > option:focus{
+.cart__select > option:focus{
     background-color: aqua;
     max-height: 30px;
+    
 }
 
-.cart__selsect:active,
-.cart__selsect:focus {
+.cart__select:active,
+.cart__select:focus {
     max-height: 30px;
 }
-.cart__selsect:active>*{
+.cart__select:active>*{
     max-height: 30px;
 }
 .subtitle{
