@@ -1,129 +1,99 @@
 @import "../../styles/style.scss";
 
 .product {
-    margin: 0 auto;
-    max-width: 700px !important;
-    height: 100%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: repeat(7,1fr);
+    grid-gap: 3rem;
+    grid-row-gap: 3rem;
+    margin-top: 2rem;
+    align-items: center;
+}
 
-    @include hands{
+.img__box{
+grid-column: 1;
+    width:100px;
+    height: 100px;
+}
 
-        & {
-            grid-template-columns: 40% 60%;
-        }
-    }
+.product_content{
+    grid-column: 2/4;
+}
+
+.product__content__span{
+    font-size: 2.3rem;
+    display: block;
+    line-height: 2.5rem;
+    padding: 0 1rem 0 0;
     
-    .product__content {
-        width: 100%;
+    &--quantity{
+        font-size: 1.8rem;
+        margin-top: 1rem;
     }
+}
+.product_select{
+    grid-column: 5;
+    align-items: center;
+    
+}
 
-    .product__info {
-        width: 100%;
-        color:black;
-        padding-left: 20px;
-        padding-right: 20px;
-        margin-top: 10px;
-        font-size: 18px;
+.product_quantity{
+    grid-column: 4;
+}
 
-        .buttons__row {
-            display: flex;
-            flex-direction: row;
-            max-width: 180px;
-            margin-top: 10px;
+.cart__select{
+    @include select; 
+    min-width: 80px;
+    height: 3rem;
+    font-size: 2rem;
+    text-align: center;
+    line-clamp: 3;
+    @include scrollbar;
+    
+ 
+    
+}
 
-            @include hands{
+.cart__select > option {
+    max-height: 30px;
+    border: 6px;
 
-                & {
-                    margin-top: 0px;
-                }
-            }
+    padding-right: 15px;
+    height: 31px;
+    width: 220px;
+    @include option;
+}
 
-            @include phone{
+.cart__select > option:focus{
+    background-color: aqua;
+    max-height: 30px;
+    
+}
 
-                & {
-                    font-size: 12px;
+.cart__select:active,
+.cart__select:focus {
+    max-height: 30px;
+}
+.cart__select:active>*{
+    max-height: 30px;
+}
+.subtitle{
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color:#666;
+}
 
-                }
-            }
-        }
-        .product__quantity {
-            margin-top: 10px;
-        }
-          
-        button {
-        width: 80%;
-        border: 2px solid green;
-        border-radius: 6px;
-        margin-top: 20px;
-        font-weight: bold;
-        color: white;
+.product__btn{
+    border:1px solid green;
+    border-radius: 50%;
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 2.7rem;
+    transition: all .2s linear;
+    
+    &:hover{
+        color:aliceblue;
         background-color: green;
-        font-size: 16px;
-        padding: 10px;
-        cursor: pointer;
-        
-            &:last-child {
-                margin-left: 10px;
-            }
-
-            @include hands{
-
-                & {
-                    width: 50%;
-                    font-size: 12px;
-                    padding: 10px 5px;
-                }
-            }
-
-            @include phone{
-
-                & {
-                    margin-top: 10px;
-
-                }
-            }
-
-        }
-
     }
-
 }
-  
-.image_block {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-  
-.image_size {
-    display: inline;
-    width: 100%;
-}
-img {
-    width: 100%;
-    border-radius: 5px;
-}
-  
-.product__partNumber {
-    color: grey;
-    font-size: 16px;
-    margin-top: 10px;
-}
-  
-.product__title {
-    margin-top: 10px;
-    font-weight: 600;
-    font-size: 20px;
-}
-  
-  
-.product__size {
-    margin-top: 10px;
-}
-  
-.price {
-    margin-top: 10px;
-}
-
-  

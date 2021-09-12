@@ -2,14 +2,15 @@ import React,{useEffect} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import Slider from "react-slick";
-import {Card, cardData} from "components/Card";
+import {Card} from "components/Card";
+import {ICart} from "store";
 
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  productList?:cardData[],
+  productList?:ICart[],
  
 }
 

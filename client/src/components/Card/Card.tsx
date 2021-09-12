@@ -5,46 +5,36 @@ import path from "path";
 import {useHistory} from "react-router-dom";
 import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
+import {Weight, ICart} from "store";
 
-export type cardData ={
-  id:number,
-  name:string,
-  price:number,
-  rate:number,
-  img:string[],
-  quantity:number
-}
 
-type IProps = {
+
+interface IProps extends ICart {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  id:number,
-  name:string,
-  price:number,
-  rate:number,
-  img:string[],
-  quantity:number,
 }
 
-const Card = (props:IProps) => {
-    const {id,
+const Card = ({ id,
             name,
             price,
             rate,
             img,
-            quantity} = props;
+            quantity,
+            weight}:IProps) => {
+
     const history = useHistory();
     const productsStore = useProductStore();
     const handleClickCart = (event: React.MouseEvent<HTMLElement>):void=>{
          event.stopPropagation();
          productsStore.cart.add(
-            id,
+            {id,
             name,
             price,
             rate,
             img,
-            quantity);
+            quantity,
+            weight});
           }
     
     const clickHandler =(e: React.MouseEvent<HTMLElement>):void =>{
@@ -60,7 +50,7 @@ const Card = (props:IProps) => {
        onClick={clickHandler}
        >
         <div className={cn(s.card__item)}>
-         <img className={cn(s['card__item--img'])} src={img[0]} alt={name} />
+         <img className={cn(s['card__item--img'])} src={img && img[0]} alt={name} />
          </div> 
          <div className={cn(s.card__item)}>       
        <span className={cn(s.card__box_item,s['card__box_item--title'])}>{name}</span>

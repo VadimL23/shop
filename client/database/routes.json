@@ -1,4 +1,5 @@
 {
     "/category":"/typesOfProduct",
-     "/category/:id":"/typesOfProduct/:id"
+     "/category/:id":"/typesOfProduct/:id",
+     "/mainSlider":"/mainSlider"
 }

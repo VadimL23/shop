@@ -3,7 +3,8 @@
 .basket {
     height: 100%;
     margin-top: 50px;
-    
+    display: flex;
+    flex-direction: column;
     .basket_title {
         font-size: 36px;
         font-weight: 700;
@@ -11,18 +12,42 @@
         max-width: 700px !important;
         height: 100%;
         padding: 50px 0;
-        text-align: center;
-        line-height: 1.05;
         
+        
+        line-height: 1.05;
+        align-self: center;
+   
     }
-    .basket_all_quantity {
-
+    .basket_summ {
+        width:100%;
+        text-align: end;
         font-size: 24px;
         font-weight: 500;
         margin: 0 auto;
         max-width: 700px !important;
         height: 100%;
-        padding: 20px 0;
-        line-height: 1.05;
+        line-height: 2rem;
+        margin-top: 3rem;
     }
 }
+
+.basket__link{
+    color:$color-highlight;
+    
+    
+    &:hover{
+        color:darken($color-highlight,13%)
+    }
+}
+
+.basket__empty__wrapper{
+    min-height: calc(100vh - 580px);
+}
+
+.basket__title--empty{
+        font-size: 3rem;
+        padding: 6rem 0rem;
+        display: block;
+        text-align: center;
+        line-height: 3rem;
+        }
