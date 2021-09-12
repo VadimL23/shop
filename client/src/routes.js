@@ -7,6 +7,7 @@ import {BasketPage} from "./pages/BasketPage";
 import {CategoryPage} from "./pages/CategoryPage";
 import {InfoPage} from "./pages/InfoPage";
 import {AboutPage} from "./pages/AboutPage";
+import {DeliveryPage} from "./pages/DeliveryPage";
 import * as route from "config/const.ts"
 
 
@@ -24,6 +25,7 @@ export const useRoutes = isAuthenticated =>{
             <Route path = {route.ADMIN_ROUTE} component={AdminPage} exact/> 
             <Route path = {route.CATEGORY_ROUTE} component={CategoryPage} exact/> 
             <Route path = {route.CATEGORY_ROUTE + '/:id'} component={CategoryPage} exact/>
+            <Route path = {route.DELIVERY_ROUTE} component={DeliveryPage} exact/>
             <Route path = {route.ABOUT_ROUTE} component={AboutPage} exact/>
             <Route render={()=>( <Redirect to = "/" /> )}/>
          </Switch>
@@ -41,6 +43,7 @@ export const useRoutes = isAuthenticated =>{
             <Route path = {route.REGISTRATION_ROUTE} component={AuthPage} exact/>   
             <Route path = {route.CATEGORY_ROUTE} component={CategoryPage} exact/>
             <Route path = {route.CATEGORY_ROUTE + '/:id'} component={CategoryPage} exact/>
+            <Route path = {route.DELIVERY_ROUTE} component={DeliveryPage} exact/>
             <Route path = {route.ABOUT_ROUTE} component={AboutPage} exact/>
             <Route path = {route.AUTH_ROUTE} component={AuthPage} exact/>       <Route render={()=>( <Redirect to = "/" /> )}/>
                  

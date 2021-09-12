@@ -22,7 +22,7 @@ const Navmenu = (props:IProps) =>{
           <Link to={"/category"} className={cn(s.chapter)}>Каталог</Link>
         </li>
         <li className={cn(s.nav__item)}>
-          <Link to={"/"} className={cn(s.chapter)}>Доставка</Link>
+          <Link to={"/delivery"} className={cn(s.chapter)}>Доставка</Link>
         </li>
         <li className={cn(s.nav__item)}>
           <Link to={"/about"} className={cn(s.chapter)}>О нас</Link>
