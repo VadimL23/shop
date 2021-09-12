@@ -16,7 +16,7 @@ type IProps = {
 const BasketPage = observer((props:any) => {
     const productStore = useProductStore();
     const {productList:list} = getSnapshot(productStore.cart);
-    console.log("list ", list);
+    
     
     return (
        <>
@@ -42,8 +42,8 @@ const BasketPage = observer((props:any) => {
                   </div>
                 ))
               }
-              <p className={cn(s.basket_all_quantity)}>Общее количество: 3</p>
-              <p className={cn(s.basket_all_quantity)}>Общая сумма: 450 рублей</p>
+            <p className={cn(s.basket_summ)}><b>Общее количество едениц товара:</b>&nbsp;{productStore.cart.getQuantityAll()}</p>
+            <p className={cn(s.basket_summ)}><b>Общая сумма: </b> {productStore.cart.getSumm()} <b>руб.</b></p>
             </div>)}  
        </>
        )

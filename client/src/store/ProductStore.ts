@@ -1,4 +1,4 @@
-import {types, getSnapshot, flow, Instance, getType} from "mobx-state-tree";
+import {types, getSnapshot, flow, Instance, getType, getParent} from "mobx-state-tree";
 import {useApi} from "hooks";
 import axios from "axios";
 
@@ -11,6 +11,12 @@ const MainSlider = types.model("MainSlider",{
      color:types.optional(types.string,"")
 })
 
+export enum Weight {
+      Primary = "300 г",
+      Secondary = "500 г",
+      Tertiary = "1 кг"
+     }
+
 const NameOfProduct = types.model(
 "NameOfProduct",
     {
@@ -20,9 +26,33 @@ const NameOfProduct = types.model(
     rate:types.optional(types.number,0),
     description:types.optional(types.string,""),
     img:types.optional(types.array(types.string),[]),
-  //  weight:types.optional(types.enumeration("weight",["100 г","500 г","1 кг"]),"100 г"),
+    weight:types.optional(types.enumeration<Weight>("Weight",Object.values(Weight)),Weight.Primary),
     quantity:types.optional(types.number,0)
-});        
+})
+.views(self=>({
+    getSumm:function(){
+            const arr = getSnapshot(self);
+            let summ:number = 0;    
+            switch(self.weight)
+                  {
+                    case(Weight.Primary):
+                    summ = 3 * self.quantity * self.price;
+                    break; 
+                  
+                    case(Weight.Secondary):
+                    summ = 5 * self.quantity * self.price;
+                    break;
+                
+                    case(Weight.Tertiary):
+                    summ = 10 * self.quantity * self.price;
+                    break;
+                }
+            return summ;
+            }
+        
+             
+    }
+));        
         
 export interface INameOfProduct extends Instance<typeof NameOfProduct> {};
 
@@ -62,6 +92,16 @@ const RateOfProduct = types.model(
 
 
 
+export interface ICart  {
+  id:number, 
+  name:string, 
+  price:number , 
+  rate:number , 
+  img:string[] , 
+  quantity:number | undefined ,
+  weight:string 
+}
+
 const Cart = types.model(
     "Cart",
     {
@@ -69,25 +109,84 @@ const Cart = types.model(
     })
 .actions(self=>{
     return{
-        add:function(id:number, 
-                      name:string, 
-                      price:number, 
-                      rate:number, 
-                      img:string[], 
-                      quantity:number)
+        add:function<ICart>(product:ICart)
         {
-          self.productList.push(NameOfProduct.create({id,name,price,rate,img,quantity})) 
-       },
+            
+          self.productList.push(NameOfProduct.create({...product})) 
+       
+    },
         clear:function(){
-            self.productList.length = 0;
+              self.productList.length = 0;
         },
         delete(id:number){
-            if (self.productList.findIndex((el)=>id===el.id) != -1){
+              if (self.productList.findIndex((el)=>id===el.id) != -1){
               self.productList.splice(self.productList.findIndex((el)=>id===el.id),1);  
             }
+        },
+        getSumm:function(){
+            const arr = getSnapshot(self.productList);
+            let summ:number = 0;    
+            if (arr.length !== 0) {
+           arr.forEach(el=>{
+             self.productList.map((el)=>{summ += el.getSumm()})
+                })
+            }
+               return summ;
+         },
+        getQuantityAll:function(){
+            const arr = getSnapshot(self.productList);
+            let summ:number = 0;    
+            if (arr.length !== 0) {
+           arr.forEach(el=>{summ=summ+el.quantity})
+            }
+               
+               return summ;
+        },
+        getQuantity:function(){
+           const arr = getSnapshot(self.productList);
+                if (arr.length !== 0) {
+                let quantity:number = 0
+               arr.forEach((el)=>{quantity+=el.quantity})
+           return quantity; 
         }
+        },
+        get(id:number){
+                return self.productList.find((el)=>el.id==id);
+            },
+        getSummById:function(id:number){
+            const arr = getSnapshot(self.productList);
+            let summ:number = 0;    
+            if (arr.length !== 0) {
+               const member = arr.find((el)=>el.id==id);
+                if (member){
+                    console.log(`MEMBER WEIGHT `, member.weight);
+                    
+                  switch(member.weight)
+                  {
+                    case(Weight.Primary):
+                    summ = 3 * member.quantity * member.price;
+                    break; 
+                  
+                    case(Weight.Secondary):
+                    summ = 5 * member.quantity * member.price;
+                    break;
+                
+                    case(Weight.Tertiary):
+                    summ = 10 * member.quantity * member.price;
+                    break;
+                }
+            }
+            return summ;
+            }
+        },
+        setQuantity(id:number,quantity:(number | undefined)){
+              const member = self.productList.find((el)=>el.id==id)
+            if (member){ 
+          //  member.quantity = quantity;
+            }
         
-    }
+            }
+  }
 })
 .views(self=>{
     return {

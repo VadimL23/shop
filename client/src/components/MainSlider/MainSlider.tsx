@@ -25,8 +25,7 @@ const MainSlider = observer((props:IProps)=>{
 const productStore = useProductStore();
 //const {id,img,subtitle,title,color,background} =getSnapshot(productStore.mainSlider);  
 const list = getSnapshot(productStore.mainSlider); 
- console.log(`ggggggg `, getSnapshot(productStore.mainSlider));
-    
+     
 return (
       <div className={cn(s.slider__wrapper)}>
         <Slider {...settings} >

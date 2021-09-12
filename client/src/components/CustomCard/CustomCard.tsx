@@ -1,52 +1,54 @@
-import React,{useRef} from "react";
+import React,{useRef, useState} from "react";
 import cn from "classnames";
 import s from "./style.module.scss";
 import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
+import {Weight, ICart} from "store";
 
-type IProps = {
+
+interface IProps extends ICart {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void,
   className?: string,
   children?: React.ReactNode,
-  id:number,
-  name:string,
-  price:number,
-  rate:number,
-  img:string[],
-  quantity:number,
+  description:string
 }
 
-const CustomCard = (props:IProps) => {
-    const descriptionRef = useRef<HTMLParagraphElement | null>(null);
-    const { id,
+const CustomCard = ({id,
             name,
             price,
             rate,
             img,
             quantity,
-        } = props;
-   
-   const productsStore = useProductStore();
-   const handleClickCart = (event: React.MouseEvent<HTMLElement>):void=>{
-       event.stopPropagation();
-         productsStore.cart.add(
-            id,
+            weight,
+            description}:IProps) => {
+    const descriptionRef = useRef<HTMLParagraphElement | null>(null);
+    const [weightSelect, setWeightSelect] = useState<string>(Weight.Primary);
+    const [quantitySelect, setQuantitySelect] = useState(1);
+    const productsStore = useProductStore();
+    const handleClickCart = (event: React.MouseEvent<HTMLElement>):void=>{
+         event.preventDefault();
+         event.stopPropagation();
+          console.log(` handleClickCart weightSelect `, weightSelect);
+       productsStore.cart.add(
+           { id,
             name,
             price,
             rate,
             img,
-            quantity);
+            quantity:quantitySelect,
+            weight:weightSelect});
      }
     
 
-    const text = "Древо жизни - не вымышленное растение и не герой библиотечных притч оно проистерает свои деревья на многие многие дали в глубь и в пространство времен.";
-    
-    const description = (text:string):string =>{
+   
+    const descriptionCutOff = (text:string):string =>{
         if (text.length > 59){
           return text.slice(0,59)+"...";             
         }
          return text;
     }
+    
+  console.log(` cart `, getSnapshot(productsStore.cart));
     
    return (
        <div className={cn(s.customcard)}>
@@ -54,28 +56,40 @@ const CustomCard = (props:IProps) => {
           <div className={cn(s["customcard__content"])}>
           <span className={cn(s.customcard__title)}>{name}</span>
           <p ref={descriptionRef} className={cn(s.customcard__description)}>
-              {description(text)}
+              {descriptionCutOff(description)}
           </p>
-          <div className={cn(s.customcard__box)}>
+          <form 
+             name="cardForm"
+             id="cardForm"
+             className={cn(s.customcard__box)}>
               <div className={cn(s.customcard__item)}>
                   <span className={cn(s.customcard__item__title)}>Фасовка</span>
-                  <select  className={cn(s.customcard__item__select)}>
-                      <option className={cn(s.customcard__option)} defaultValue = {"500 г"}>500 г</option>
-                      <option className={cn(s.customcard__option)}>300 г</option>
-                      <option className={cn(s.customcard__option)}>1 кг</option>
+                  <select  
+                      defaultValue = {weightSelect}
+                      onChange={(e)=>{setWeightSelect(e.target.value)}}
+                      className={cn(s.customcard__item__select)}>
+                      <option className={cn(s.customcard__option)} defaultValue = {Weight.Primary}>{Weight.Primary}</option>
+                      <option className={cn(s.customcard__option)}>{Weight.Secondary}</option>
+                      <option className={cn(s.customcard__option)}>{Weight.Tertiary}</option>
                   </select>
               </div>
               <div className={cn(s.customcard__item)}>
                   <span className={cn(s.customcard__item__title)}>Кол-во</span>
-                  <select className={cn(s.customcard__item__select)}>
+                  <select 
+                     defaultValue = {quantitySelect}
+                     onChange={(e)=>{
+                          setQuantitySelect(+e.target.value)}}
+                     className={cn(s.customcard__item__select)}>
                       <option className={cn(s.customcard__option)} defaultValue={1}>1</option>
                       <option className={cn(s.customcard__option)}>2</option>
                       <option className={cn(s.customcard__option)}>3</option>
                    </select>
               </div>
-          </div>
+          </form>
           <button 
+             form = "cardForm"
              onClick = {handleClickCart}
+             type="submit"
              className={cn(s.customcard__btn)}>
               В корзину
           </button>
