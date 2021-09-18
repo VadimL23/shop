@@ -1,63 +1,61 @@
-@import "../../../../styles/style.scss";
+@import '../../../../styles/style.scss';
 
-.search_wrapper{
-    width: 100%;
-    overflow-y: hidden;
-    min-height: 250px;
-    max-height: calc(100vh - 100px);
-    
-    &::-webkit-scrollbar {
-     width: 10px;
-    }
+.search_wrapper {
+  width: 100%;
+  overflow-y: hidden;
+  min-height: 250px;
+  max-height: calc(100vh - 100px);
 
-    &::-webkit-scrollbar-track {
-      -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-      background-color: #f9f9fd;
-      border-radius: 10px;
-    }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: linear-gradient(180deg, #00c6fb, #005bea);
-    }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #005bea);
+  }
 }
 
-.search__input{
-    
-    padding: 10px 13px;
-    border:1px solid $border-color-input;
-    outline: none;
-    display: inline-block;
-    font-size: 2.3rem;
-    border-radius: $border-radius;
-    width:100%;
-    min-width:250px;
-    margin: 0 auto;
-    
-    &::placeholder{
-        font-size: 1.6rem;
-        color:$color-input-placeholder;
-        
-    }
+.search__input {
+  padding: 10px 13px;
+  border: 1px solid $border-color-input;
+  outline: none;
+  display: inline-block;
+  font-size: 2.3rem;
+  border-radius: $border-radius;
+  width: 100%;
+  min-width: 250px;
+  margin: 0 auto;
+
+  &::placeholder {
+    font-size: 1.6rem;
+    color: $color-input-placeholder;
+  }
 }
 
-.box{
-    min-height: 250px;
-    max-height: calc(100vh - 100px);
-    overflow-y: scroll!important;
-    
-    &::-webkit-scrollbar {
-     width: 10px;
-    }
+.box {
+  min-height: 250px;
+  max-height: calc(100vh - 100px);
+  overflow-y: scroll !important;
 
-    &::-webkit-scrollbar-track {
-      -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-      background-color: #f9f9fd;
-      border-radius: 10px;
-    }
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: linear-gradient(180deg, #00c6fb, #005bea);
-    }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #005bea);
+  }
 }

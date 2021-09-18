@@ -1,1 +1,1 @@
-export * from "./CategoryPanel";
+export * from './CategoryPanel';

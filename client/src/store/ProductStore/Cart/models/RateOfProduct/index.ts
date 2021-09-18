@@ -1,1 +1,1 @@
-export * from "./RateOfProduct";
+export * from './RateOfProduct';

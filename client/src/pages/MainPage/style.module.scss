@@ -1,22 +1,21 @@
-@import "../../styles/style.scss";
+@import '../../styles/style.scss';
 
-.product__list{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:space-between;
-    flex:1 0 21%;
-    
-    @include hands{
-        flex:1 0 100%;
-    }
-    
-      @include phone{
-        flex:1 0 100%;
-    }
-}
-.product__list__title{
-    font-size: 4rem;
-    padding-left: 10px;
-}
+.product__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 0 21%;
 
+  @include hands {
+    flex: 1 0 100%;
+  }
+
+  @include phone {
+    flex: 1 0 100%;
+  }
+}
+.product__list__title {
+  font-size: 4rem;
+  padding-left: 10px;
+}

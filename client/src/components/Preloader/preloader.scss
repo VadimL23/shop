@@ -1,10 +1,10 @@
-@import "../../styles//theme/variables.scss";
+@import '../../styles//theme/variables.scss';
 
-.preloader{
-    width:23rem;
-    height:23rem;
+.preloader {
+  width: 23rem;
+  height: 23rem;
 }
 
-.rect{
-   fill:$color-preloader;
+.rect {
+  fill: $color-preloader;
 }

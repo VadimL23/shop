@@ -1,1 +1,1 @@
-export * from './Navmenu'
+export * from './Navmenu';

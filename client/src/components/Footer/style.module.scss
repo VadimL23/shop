@@ -1,141 +1,135 @@
-@import "../../styles/style.scss";
+@import '../../styles/style.scss';
 
-
-.footer{
-   display:flex;
-   flex-direction: column;
-   justify-content: space-between;
-   width: 100%;
-   margin-top: 5rem;
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5rem;
 }
 
-.footer__item{
-   background-color: $color-footer; 
-   display:flex;
-   align-self: center;
-   width:100%;
-   justify-content: center;   
+.footer__item {
+  background-color: $color-footer;
+  display: flex;
+  align-self: center;
+  width: 100%;
+  justify-content: center;
 }
 
-.footer__content{
-    display:flex;
-    width:100%;
-    flex:1 0 25%;
-    padding: 0 0 3rem 0;
-    margin-top: 5rem;
-    max-width: 1170px;
-    justify-content: center;
-    
-    @include hands{
-        flex-wrap: wrap;
-        
-    }
+.footer__content {
+  display: flex;
+  width: 100%;
+  flex: 1 0 25%;
+  padding: 0 0 3rem 0;
+  margin-top: 5rem;
+  max-width: 1170px;
+  justify-content: center;
+
+  @include hands {
+    flex-wrap: wrap;
+  }
 }
 
-.footer__item--last{
-  height:4rem;
+.footer__item--last {
+  height: 4rem;
   padding: 1rem 0;
   justify-content: center;
-  background-color:$color-footer-bottom;
+  background-color: $color-footer-bottom;
   max-width: inherit;
   font-size: 1.8rem;
   margin-top: 0;
   text-align: center;
-    
-    @include hands{
-        height: auto;
-        padding: 1rem .5rem;
-    }
+
+  @include hands {
+    height: auto;
+    padding: 1rem 0.5rem;
+  }
 }
 
-.footer__element{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.footer__element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 3rem;
+
+  @include lap {
+    padding: 0 0.5rem;
+  }
+
+  @include hands {
+    padding: 0 1.5rem;
+    width: 50%;
+  }
+
+  @include phone {
+    padding: 0 1.5rem;
     width: 100%;
-    padding: 0 3rem;
-    
-    @include lap{
-        padding: 0 .5rem;        
-    }
-    
-    @include hands{
-        padding: 0 1.5rem;  
-        width: 50%;
-    }
-    
-    @include phone{
-        padding: 0 1.5rem;  
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-.footer__title{
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 2rem 0;
+.footer__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 2rem 0;
 }
 
-.footer_nav{
-    font-size: 1.8rem;
-    line-height: 2rem;
-    padding: .5rem 0;
-    transition: all .2s linear;
-    text-shadow: 0 0 1px gray;
-    
-    @include phone{
+.footer_nav {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  padding: 0.5rem 0;
+  transition: all 0.2s linear;
+  text-shadow: 0 0 1px gray;
+
+  @include phone {
     line-height: 1.4rem;
     text-align: center;
-    }
-    
-    &:hover{
-     color:aqua ;
-     text-decoration: underline;
-    }
+  }
+
+  &:hover {
+    color: aqua;
+    text-decoration: underline;
+  }
 }
 
-.footer__form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 2rem;
+.footer__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 2rem;
 }
 
-.footer__input{
-    margin-top: 1rem!important;
+.footer__input {
+  margin-top: 1rem !important;
+  font-size: 1.8rem;
+  background-color: white;
+  border-radius: $border-radius;
+  min-width: 250px !important;
+  width: 100%;
+
+  @include hands {
+    padding: 0 3rem;
+    min-width: 200px !important;
+  }
+}
+
+.footer_btn {
+  padding: 1rem 1rem;
+  background-color: lighten($btn_order-color, 13%);
+  margin: 0 auto;
+  transition: all 0.2s ease-out;
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: white;
+
+  @include hands {
+    padding: 0.6rem 0.6rem;
     font-size: 1.8rem;
-    background-color: white;
-    border-radius: $border-radius;
-    min-width:250px!important;
-    width: 100%;
-    
-    @include hands{
-        padding: 0 3rem;  
-         min-width:200px!important;
-    }
- 
-}
+  }
 
-
-
-.footer_btn{
-    padding: 1rem 1rem;
-    background-color: lighten($btn_order-color,13%);  
-    margin:0 auto;
-    transition:all .2s ease-out;
-    margin-top: 1rem;
-    font-size: 2rem;
-    color:white;
-    
-    @include hands{
-        padding: .6rem .6rem;  
-        font-size: 1.8rem;
-    }
-    
-    &:hover{
-         box-shadow:  0 0 .8rem rgba(darken($btn_order-color,13%),.5)!important; 
-        
-    }
+  &:hover {
+    box-shadow: 0 0 0.8rem rgba(darken($btn_order-color, 13%), 0.5) !important;
+  }
 }

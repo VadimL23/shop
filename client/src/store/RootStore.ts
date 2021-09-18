@@ -1,11 +1,7 @@
-import {types} from "mobx-state-tree";
+import { types } from 'mobx-state-tree';
 
-const RootStore = types.model(
-"mainStore",{
-    isAuthenticated:types.optional(types.boolean,false),
- }
-);
+const RootStore = types.model('mainStore', {
+  isAuthenticated: types.optional(types.boolean, false),
+});
 
-export {
-    RootStore,
-}
+export { RootStore };

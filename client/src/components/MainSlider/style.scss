@@ -1,59 +1,52 @@
-@import "../../styles/theme/breakpoints.scss";
+@import '../../styles/theme/breakpoints.scss';
 
-.slick-dots{
-    bottom:23px;
+.slick-dots {
+  bottom: 23px;
 }
 
-.slick-prev{
- left:6px;
- z-index: 1;
-    
-    @include hands{
-        &{
-           left:0;
-            
-        }
+.slick-prev {
+  left: 6px;
+  z-index: 1;
+
+  @include hands {
+    & {
+      left: 0;
     }
-  
-    @include phone{
-        &{
-          
-        }
+  }
+
+  @include phone {
+    & {
     }
-    
+  }
 }
 
-.slick-next{
- right:33px;
- z-index: 1;
-    
-      @include hands{
-        &{
-           right:0;
-            
-        }
+.slick-next {
+  right: 33px;
+  z-index: 1;
+
+  @include hands {
+    & {
+      right: 0;
     }
-  
-    @include phone{
-        &{
-          
-        }
+  }
+
+  @include phone {
+    & {
     }
-    
+  }
 }
 
-.slick-prev:before, .slick-next:before{
-    font-size: 50px;
-       @include hands{
-        &{
-            font-size: 23px;
-            
-        }
+.slick-prev:before,
+.slick-next:before {
+  font-size: 50px;
+  @include hands {
+    & {
+      font-size: 23px;
     }
-  
-    @include phone{
-        &{
-          
-        }
+  }
+
+  @include phone {
+    & {
     }
+  }
 }

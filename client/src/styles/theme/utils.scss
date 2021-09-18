@@ -1,31 +1,27 @@
-@import "./breakpoints";
+@import './breakpoints';
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .w-50 {
-    width: 50%;
+  width: 50%;
 }
 
 .container {
-    max-width: 1200px !important;
-    display: block;
-    margin: 0 auto;
-    padding: 0 15px;
-    margin-top: 18rem;
-   
-  @include hands{
-      
-        max-width: 640px !important;
-        padding: 0 10px;
-      }
-    
-     @include phone{
-        
-         max-width: 540px !important;
-         padding: 0 5px;
-      }
+  max-width: 1200px !important;
+  display: block;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-top: 18rem;
+
+  @include hands {
+    max-width: 640px !important;
+    padding: 0 10px;
+  }
+
+  @include phone {
+    max-width: 540px !important;
+    padding: 0 5px;
+  }
 }
-
-
