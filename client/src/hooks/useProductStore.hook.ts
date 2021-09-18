@@ -1,7 +1,7 @@
-import {useContext} from "react";
-import {productContext} from "context";
+import { useContext } from 'react';
+import { productContext } from 'context';
 
 const useProductStore = () => {
-    return useContext(productContext);
-}
- export {useProductStore};
+  return useContext(productContext);
+};
+export { useProductStore };

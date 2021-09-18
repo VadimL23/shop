@@ -1,1 +1,1 @@
-export * from "./BasketPage"
+export * from './BasketPage';

@@ -3,33 +3,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap');
 
 // Import css files
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
 
 html {
-    font-size: $font-html;
-    line-height:$line-height-html;
+  font-size: $font-html;
+  line-height: $line-height-html;
 }
 
 body {
-    background-color: #f7f5f2;
+  background-color: #f7f5f2;
 }
 
-
 header {
-
 }
 
 body::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
 
-*::-webkit-scrollbar-thumb{
-     background-color: aqua;   
-    }
-
-.main_title{
-    color:blue;
+*::-webkit-scrollbar-thumb {
+  background-color: aqua;
 }
 
-
+.main_title {
+  color: blue;
+}
