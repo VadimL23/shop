@@ -1,112 +1,107 @@
-@import "../../styles/style.scss";
+@import '../../styles/style.scss';
 
 .basket {
+  height: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  .basket_title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 auto;
+    max-width: 700px !important;
     height: 100%;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    .basket_title {
-        font-size: 36px;
-        font-weight: 700;
-        margin: 0 auto;
-        max-width: 700px !important;
-        height: 100%;
-        padding: 50px 0;
-        
-        
-        line-height: 1.05;
-        align-self: center;
-   
-    }
-    .basket_summ {
-        width:100%;
-        text-align: end;
-        font-size: 24px;
-        font-weight: 500;
-        margin: 0 auto;
-        max-width: 700px !important;
-        height: 100%;
-        line-height: 2rem;
-        margin-top: 3rem;
-    }
+    padding: 50px 0;
+
+    line-height: 1.05;
+    align-self: center;
+  }
+  .basket_summ {
+    width: 100%;
+    text-align: end;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 auto;
+    max-width: 700px !important;
+    height: 100%;
+    line-height: 2rem;
+    margin-top: 3rem;
+  }
 }
 
-.basket__link{
-    color:$color-highlight;
-    
-    
-    &:hover{
-        color:darken($color-highlight,13%)
-    }
+.basket__link {
+  color: $color-highlight;
+
+  &:hover {
+    color: darken($color-highlight, 13%);
+  }
 }
 
-.basket__empty__wrapper{
-    min-height: calc(100vh - 580px);
+.basket__empty__wrapper {
+  min-height: calc(100vh - 580px);
 }
 
-.basket__title--empty{
-    font-size: 3rem;
-    padding: 6rem 0rem;
-    display: block;
-    text-align: center;
-    line-height: 3rem;
+.basket__title--empty {
+  font-size: 3rem;
+  padding: 6rem 0rem;
+  display: block;
+  text-align: center;
+  line-height: 3rem;
 }
 
 .buy_form {
-    margin: 0 auto;
-    width: 80%;
-    font-size: 20px;
-    margin-top: 50px;
+  margin: 0 auto;
+  width: 80%;
+  font-size: 20px;
+  margin-top: 50px;
 
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-        .item_input {
-            background-color: #00c200;
-            margin: 0 auto;
-            transition: all 0.2s ease-out;
-            margin-top: 1rem;
-            font-size: 2rem;
-            color: white;  
-            padding: 10px 20px;
-            border-radius: 7px;
-            font-weight: 700;
-        }
+    .item_input {
+      background-color: #00c200;
+      margin: 0 auto;
+      transition: all 0.2s ease-out;
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-weight: 700;
     }
+  }
 
-    .form_title {
-        font-size: 26px;
-        font-weight: 500;
-        margin-left: 4px;
-        margin-bottom: 20px;
+  .form_title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 4px;
+    margin-bottom: 20px;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding: 4px;
+
+    label {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      margin-right: 15px;
     }
-
-    .item {
-
-        display: grid;
-        grid-template-columns: 30% 70%;
-        padding: 4px;
-
-        label {
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-            margin-right: 15px;
-        }
-        input {
-            display: block;
-            margin: 0 0 1rem 0;
-            padding: 0.5rem;
-            font-size: 20px;
-            border: 0;
-            border-radius: 7px;
-            background-color:white;
-        }
-        textarea {
-            border-style: none;
-            border-radius: 10px;
-        }
+    input {
+      display: block;
+      margin: 0 0 1rem 0;
+      padding: 0.5rem;
+      font-size: 20px;
+      border: 0;
+      border-radius: 7px;
+      background-color: white;
     }
-
+    textarea {
+      border-style: none;
+      border-radius: 10px;
+    }
+  }
 }

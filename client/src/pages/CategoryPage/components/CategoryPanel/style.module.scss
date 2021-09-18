@@ -1,76 +1,69 @@
-@import "styles/style.scss";
+@import 'styles/style.scss';
 
-.panel__li{
-    font-size: 2rem!important;
-    margin-top: 1.5rem;
-    }
-
-.panel__li_group{
-    position: relative;
-    color:$color-link;
-    
-    &:after{
-        content:"";
-        width:10px;
-        height: 10px;
-        display: block;
-        border-bottom: 2px solid $color-arrow;
-        border-right:2px solid $color-arrow;
-        position: absolute;
-        transform: rotate3d(0,0,1,-45deg);
-        right:10%;
-        top: calc(50%);
-    }
-      
+.panel__li {
+  font-size: 2rem !important;
+  margin-top: 1.5rem;
 }
 
-.panel__subgroup{
-    height:0;
-    overflow: hidden;
-    transition: all .3s linear;
+.panel__li_group {
+  position: relative;
+  color: $color-link;
+
+  &:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-bottom: 2px solid $color-arrow;
+    border-right: 2px solid $color-arrow;
+    position: absolute;
+    transform: rotate3d(0, 0, 1, -45deg);
+    right: 10%;
+    top: calc(50%);
+  }
 }
 
-.panel__li_group:hover.panel__li_group:after{
-   /*transform: rotate3d(0,0,1,45deg); */
-     border-bottom: 2px solid $color-highlight;
-    border-right:2px solid $color-highlight;
- 
+.panel__subgroup {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s linear;
 }
 
-.panel__li_group:hover
-.panel__subgroup{
-    height:4rem;;
-    
+.panel__li_group:hover.panel__li_group:after {
+  /*transform: rotate3d(0,0,1,45deg); */
+  border-bottom: 2px solid $color-highlight;
+  border-right: 2px solid $color-highlight;
 }
 
-.page__content{
+.panel__li_group:hover .panel__subgroup {
+  height: 4rem;
+}
+
+.page__content {
   grid-column: 2 / 4;
-  grid-row:1;  
+  grid-row: 1;
 }
 
-.link{
-    
-  
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    
-      &:hover{
-            color:$color-highlight;
-            }
-        
-        &__img {
-            border-radius:$border-radius;
-            max-height: 5rem;
-            max-width: 5rem;
-            }
-        &__span{
-            font-size: 2rem;
-            margin-left: 1rem;
-            
-          
-            }
+.link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &:hover {
+    color: $color-highlight;
+  }
+
+  &__img {
+    border-radius: $border-radius;
+    max-height: 5rem;
+    max-width: 5rem;
+  }
+  &__span {
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
 }
 
-.navlink__active{color:darken($color-highlight,13%)}
-
+.navlink__active {
+  color: darken($color-highlight, 13%);
+}
