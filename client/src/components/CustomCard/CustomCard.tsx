@@ -3,7 +3,8 @@ import cn from "classnames";
 import s from "./style.module.scss";
 import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
-import {Weight, ICart} from "store";
+import {Weight} from "store/ProductStore/Cart/models/NameOfProduct";
+import { ICart} from "store/ProductStore/Cart";
 
 
 interface IProps extends ICart {
@@ -26,8 +27,8 @@ const CustomCard = ({id,
     const [quantitySelect, setQuantitySelect] = useState(1);
     const productsStore = useProductStore();
     const handleClickCart = (event: React.MouseEvent<HTMLElement>):void=>{
-         event.preventDefault();
-         event.stopPropagation();
+       event.preventDefault();
+       event.stopPropagation();
           console.log(` handleClickCart weightSelect `, weightSelect);
        productsStore.cart.add(
            { id,
@@ -37,7 +38,7 @@ const CustomCard = ({id,
             img,
             quantity:quantitySelect,
             weight:weightSelect});
-     }
+          }
     
 
    

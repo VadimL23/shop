@@ -3,7 +3,7 @@ import cn from "classnames";
 import s from "./style.module.scss";
 import Slider from "react-slick";
 import {Card} from "components/Card";
-import {ICart} from "store";
+import {ICart} from "store/ProductStore/Cart";
 
 
 type IProps = {

@@ -9,6 +9,10 @@
     border:1px solid $color-highlight;
     margin-top: 3rem;
     min-height: 556px;
+    
+    @include hands{
+        margin:1rem auto;
+    }
 }
 
 .customcard__content{

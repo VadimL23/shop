@@ -6,8 +6,8 @@ import {AddtoCart} from "./components/AddtoCart";
 import {NavLink} from "react-router-dom";
 import * as route from "config/const";
 import {Navmenu}  from "../Navmenu";
-import cart_data from "config/constants/cart_data";
-
+import {useProductStore} from "hooks";
+import {observer} from "mobx-react-lite";
 
 interface IProps {
     isAuthenticated:boolean;
@@ -16,10 +16,11 @@ interface IProps {
 }
 
 
-const Navbar = (props:IProps) =>{
+const Navbar = observer((props:IProps) =>{
     const [cartVisible,setCartVisible] = useState(false);
     const {isAuthenticated,setVisibleModal,isVisibleModal} = props;
- 
+    const productStore = useProductStore();
+    const {cart} = productStore;
     return ( 
     <div className={cn(s.menu__wrapper)}>
      <div className={cn(s.nav, s.contain)}> 
@@ -30,9 +31,8 @@ const Navbar = (props:IProps) =>{
              {isAuthenticated ? 
          <NavLink 
            to={"/"}
-          className={cn(s.Navbar__icon)}>
-           
-             <svg
+           className={cn(s.Navbar__icon)}>
+         <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
@@ -47,7 +47,6 @@ const Navbar = (props:IProps) =>{
               <line x1="21" y1="12" x2="9" y2="12" />
             </svg>
         </NavLink>
-          
              :
         <NavLink 
            className={cn(s.Navbar__icon)}
@@ -80,7 +79,10 @@ const Navbar = (props:IProps) =>{
             className={cn({[s.Navbar__icon]:true,
                            [s.cart]:true})} 
           >
-                <svg 
+               <span className={s.cart__count}>
+                   {cart.getCount()}
+               </span>
+               <svg 
                     viewBox="0 0 32 32" 
                     xmlns="http://www.w3.org/2000/svg"
                     className={cn(s.Navbar__img)}
@@ -106,6 +108,6 @@ const Navbar = (props:IProps) =>{
         />
   </div>     
  )   
-}
+})
 
 export {Navbar}

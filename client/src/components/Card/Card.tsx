@@ -5,7 +5,8 @@ import path from "path";
 import {useHistory} from "react-router-dom";
 import {useProductStore} from "hooks";
 import {getSnapshot} from "mobx-state-tree";
-import {Weight, ICart} from "store";
+import {ICart} from "store/ProductStore/Cart";
+import {Weight} from "store/ProductStore/Cart/models/NameOfProduct";
 
 
 

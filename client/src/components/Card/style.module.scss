@@ -1,5 +1,6 @@
 @import "../../styles/style.scss";
 
+
 .card{
     display: flex;
     flex-direction: column;
@@ -14,6 +15,22 @@
     transition:all .2s ease-in-out;
     margin: 10px 10px;
     min-height: 540px;
+    
+  @inlude hands{
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+     
+        }
+    
+  @inlude phone{
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+     
+        }
     
     &:hover{
      box-shadow: 0 0 .8rem rgba(#333,.9);   
@@ -31,12 +48,15 @@
         }
     @inlude phone{
           margin:0 auto;
+         
         }
     
 }
 
 .card__item{
   overflow: hidden;
+  
+
   &--img{
      display: block;
         width: 100%;
