@@ -42,9 +42,40 @@ const BasketPage = observer((props:any) => {
                   </div>
                 ))
               }
-            <p className={cn(s.basket_summ)}><b>Общее количество едениц товара:</b>&nbsp;{productStore.cart.getQuantityAll()}</p>
-            <p className={cn(s.basket_summ)}><b>Общая сумма: </b> {productStore.cart.getSumm()} <b>руб.</b></p>
-            </div>)}  
+            <p className={cn(s.basket_summ)}><b>Общее количество единиц товара:</b>&nbsp;{productStore.cart.getQuantityAll()}</p>
+            <p className={cn(s.basket_summ)}><b>Общая сумма: </b>{productStore.cart.getSumm()} <b>руб.</b></p>
+            </div>)}
+          <div className={cn(s.buy_form)}>
+              <p className={cn(s.form_title)}>Информация для заказа</p>
+
+              <form onSubmit={(e: any) => { console.log(e);}}>
+              <div className={cn(s.item)}>
+                  <label htmlFor='name'>Имя</label>
+                  <input type='text' id='name' />
+                </div>
+                <div className={cn(s.item)}>
+                  <label htmlFor='phone'>Телефон</label>
+                  <input type='number' id='phone' />
+                </div>
+                <div className={cn(s.item)}>
+                  <label htmlFor='email'>Email</label>
+                  <input type='text' id='email' />
+                </div>
+                <div className={cn(s.item)}>
+                  <label htmlFor='adress'>Адрес</label>
+                  <input type='text' id='adress' />
+                </div>
+                {/* <div className={cn(s.item)}>
+                  <label htmlFor='data'>Ориентировочное время доставки</label>
+                  <input type='data' id='data' />
+                </div>    */}
+                <div className={cn(s.item)}>
+                  <label htmlFor='comment'>Комментарий</label>
+                  <textarea placeholder="<для уточнения деталей>"></textarea>
+                </div>
+                <input className={cn(s.item_input)} type="submit" value="Отправить" />
+              </form>
+          </div>
        </>
        )
        

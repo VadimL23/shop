@@ -1,2 +1,2 @@
 export * from "./RootStore";
-export * from "./ProductStore";
+export * from "./ProductStore/ProductStore";

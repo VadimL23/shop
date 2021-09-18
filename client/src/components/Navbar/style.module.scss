@@ -42,11 +42,11 @@
 }
 
 .nav__links{
-    
     display:flex;
     justify-content: space-around;
     align-items: center;
     min-width:170px;
+   margin-top: 2rem;
     
     @include hands{
         &{
@@ -139,4 +139,21 @@
         left:-50%;
         
     }
+}
+
+.cart__count{
+    position: absolute;
+    top:-16%;
+    right: -16%;
+    border-radius: $border-radius;
+    border:2px solid white;
+    display: block;
+    width: 23px;
+    height: 23px;
+    opacity: 1;
+    background-color: $color-highlight;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: greenyellow;
 }

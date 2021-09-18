@@ -3,7 +3,7 @@ import cn from "classnames";
 import s from "./style.module.scss";
 import star_icon from "assets/svg/star_icon.svg";
 import {getSnapshot} from "mobx-state-tree";
-import {ICart} from "store";
+import {ICart} from "store/ProductStore/Cart";
 import {useProductStore} from "hooks";
 
 interface IProps extends ICart {
@@ -33,7 +33,6 @@ const CartProduct = (props:IProps) =>{
         setQuantitySelect(+event.target.value);
         productsStore.cart.setQuantity(id,quantitySelect);
     }
-    
  
     
 return ( 
