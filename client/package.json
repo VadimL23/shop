@@ -60,7 +60,11 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "concurrently": "^6.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "json-server": "^0.16.3"
   }
 }
