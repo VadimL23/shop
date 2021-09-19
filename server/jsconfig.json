@@ -1,7 +1,7 @@
 {
-    "compilerOptions":{
-           "experimentalDecorators": true
-    },
-    "include":[  "./**/*"],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "experimentalDecorators": true
+  },
+  "include": ["./**/*"],
+  "exclude": ["node_modules"]
 }

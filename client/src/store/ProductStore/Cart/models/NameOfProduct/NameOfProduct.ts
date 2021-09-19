@@ -20,6 +20,7 @@ const NameOfProduct = types
     ),
     quantity: types.optional(types.number, 0),
   })
+
   .views((self) => ({
     getSumm: function () {
       const arr = getSnapshot(self);

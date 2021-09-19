@@ -14,6 +14,7 @@ import { TypesOfProduct } from './Cart/models/TypesOfProduct';
 import { BrandOfProduct } from './Cart/models/BrandOfProduct';
 import { RateOfProduct } from './Cart/models/RateOfProduct';
 import { MainSlider } from './MainSlider';
+import { CATEGORY_ROUTE } from 'config';
 
 const ProductStore = types
   .model('mainStore', {
