@@ -3,6 +3,7 @@ import cn from 'classnames';
 import s from './style.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from 'config';
+import { useScrollBodyTop } from 'hooks';
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void;
@@ -13,7 +14,7 @@ type IProps = {
 const AuthPage = (props: IProps) => {
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
-
+  useScrollBodyTop();
   return (
     <div className={cn(s['auth__form_box'])}>
       <h2 className={cn(s.form__title)}>

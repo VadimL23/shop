@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import cn from 'classnames';
 import s from './style.module.scss';
 import { CartProduct } from 'components/CartProduct';
-import { useProductStore } from 'hooks';
+import { useProductStore, useScrollBodyTop } from 'hooks';
 import { observer } from 'mobx-react-lite';
 import { getSnapshot } from 'mobx-state-tree';
 import { Link } from 'react-router-dom';
+
+
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void;
@@ -16,8 +18,8 @@ type IProps = {
 const BasketPage = observer((props: any) => {
   const productStore = useProductStore();
   const { productList: list } = getSnapshot(productStore.cart);
-
-  return (
+  useScrollBodyTop();
+return (
     <>
       {list.length == 0 ? (
         <div className={cn(s['basket__empty__wrapper'])}>
