@@ -31,7 +31,7 @@ const App = observer(() => {
         />
         <div className={cn(['container'], { ['overflow_hidden']: isOverflow })}>
           {routes}
-
+          <div className={cn(['back_image'])}></div>
           <Popup isVisibleModal={modal} setVisibleModal={setModal}></Popup>
         </div>
         <Footer />

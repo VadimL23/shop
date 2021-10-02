@@ -16,6 +16,7 @@ type IProps = {
 
 const InfoPage = observer((props: any) => {
   const id = props.match.params.id;
+  console.log(props);
   const productStore = useProductStore();
   //  const {id, name, quantity, price, rate} =  productStore.getProductById(13);
   console.log(`product `, productStore.getAllProducts());

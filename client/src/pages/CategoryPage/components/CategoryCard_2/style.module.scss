@@ -1,0 +1,120 @@
+@import '../../../../styles/style.scss';
+
+// .card {
+//   display: flex;
+//   position: relative;
+//   flex: 0 0 30%;
+//   border-radius: $border-radius;
+//   height: 190px;
+//   margin-bottom: 3rem;
+//   overflow: hidden;
+// }
+
+.card {
+  width: 270px;
+  height: 373px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  border: 0.2px solid grey;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 6px rgba(116, 111, 111, 0.25);
+  z-index: 100;
+
+  .card__img {
+    height: 209px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.3px solid grey;
+
+    .img_style {
+      width: 238px;
+      height: 182px;
+      margin-top: 8px;
+      object-fit: cover;
+    }
+    .new_text {
+      width: 82px;
+      height: 23px;
+      font-size: 20px;
+      line-height: 23px;
+      color: #559C1D;
+    }
+
+  }
+
+  .card__description {
+    height: 164px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .title {
+      margin-top: 9px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 25px;
+      color: #000000;
+    }
+
+    .size {
+      width: 152px;
+      height: 20px;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 14px;
+      //line-height: 16px;
+      color: rgba(0, 0, 0, 0.38);
+      border: 0.2px solid rgba(0, 0, 0, 0.38);
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+
+    }
+
+    .price {
+      margin-top: 10px;  
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: #71B83A;
+    }
+    .cart_button {
+      margin-top: 10px; 
+      width: 152px;
+      height: 35px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 23px;
+      color: #FFFFFF;
+      background-color: #99D967;
+      vertical-align: middle;
+      display:table-cell;
+      border: 1px solid #99D967
+
+    }
+
+    .cart_button:hover {  
+      color: #99D967;
+      background-color: #FFFFFF;
+    
+    }
+
+
+  }
+
+
+}
+
+// .card__img {
+//   height: 100%;
+// }
+
+
