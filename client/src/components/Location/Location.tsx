@@ -24,10 +24,10 @@ const Location = (props: IProps) => {
 
   if (locationArray[0] === "category") {
     console.log(locationArray[0]);
-    locationArray[0] = props.nameCategory;
+    //locationArray[0] = props.nameCategory;
   } else if (locationArray[0] === "info") {
     console.log(locationArray[0]);
-    locationArray[1] = props.nameCategory;
+    //locationArray[1] = props.nameCategory;
   }
   function split(arr: string[], index: number) {
     let temp = 0;

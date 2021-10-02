@@ -12,7 +12,7 @@ type IProps = {
   id: number;
   name: string;
   img: string[];
-  price: any;
+  price?: any;
   weight?: string;
   productsList?: any;
   nameList?: any;
