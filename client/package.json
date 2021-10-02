@@ -42,6 +42,7 @@
   },
   "scripts": {
     "start:mock": "concurrently \"json-server database/index.json --port 3001 --routes database/routes.json\" \"react-scripts start\"",
+    "start:serv": "concurrently \"npm run dev --prefix ../server\" \"react-scripts start\"",
     "servMock": "json-server database/index.json --port 3001 --routes database/routes.json",
     "start": "react-scripts start",
     "build": "react-scripts build",

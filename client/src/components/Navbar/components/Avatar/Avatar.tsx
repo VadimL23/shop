@@ -7,14 +7,18 @@ import nut from 'assets/Navbar/nut.svg';
 const Avatar = () => {
   return (
     <NavLink to='/' className={cn(s.avatar_block)}>
-      BON&thinsp;
-      <img
+      BON &nbsp; Appetite
+      <div className={s.avatar_box}>
+    <img
         src={nut}
         alt='Bon Appetite'
         title='Bon Appetite'
         className={cn(s.avatar_img)}
-      />
-      &thinsp;Appetite
+      />   
+          
+      </div>
+   
+     
     </NavLink>
   );
 };
