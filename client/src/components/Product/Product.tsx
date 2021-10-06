@@ -54,7 +54,7 @@ const Product = (props: IProps) => {
           <p className={cn(s.price)}>{props.price} р</p>
           <div className={cn(s.buttons_group)}>
             <button>В корзину</button>
-            <button>Продождить покупки</button>
+            <button>Продолжить покупки</button>
           </div>
           {/* <p className={cn(s.product__count)}>Пищевая ценность</p>
           <div className={cn(s.product_values)}>
