@@ -16,12 +16,14 @@ type IProps = {
   weight?: string;
   productsList?: any;
   nameList?: any;
+  id_category?: any;
 };
 
 const CategoryCard_2 = observer((props: IProps) => {
   const history = useHistory();
-  const { id, name, img, price } = props;
+  const { id, name, img, price, id_category} = props;
   //const { backPath, change } = useLocationStore();
+  console.log("Тут айди категории" + id_category);
   console.log("Тут айди товара" + id);
 
 
@@ -37,7 +39,7 @@ const CategoryCard_2 = observer((props: IProps) => {
       className={cn(s.card)}
       onClick={(el) => {
         el.stopPropagation();
-        history.push('/info/' + `${id}`);
+        history.push('/category/' + `${id_category}` + "/" + `${id}`);
       }}
     >
       <div className={cn(s.card__img)}>
@@ -47,24 +49,19 @@ const CategoryCard_2 = observer((props: IProps) => {
       <div className={cn(s.card__description)}>
         <span className={cn(s.title)}>{descriptionCutOff(name)}</span>
         <div className={cn(s.size)}>
-            <div className={cn(s.minus)}>
+            <a className={cn(s.minus)}>
               <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line y1="1" x2="13" y2="1" stroke="black"/>
-              </svg>
-              <svg width="1" height="14" viewBox="0 0 1 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.499999" y2="13.5" stroke="black"/>
-              </svg>
-            </div>
+              </svg> 
+            </a>
             <span className={cn(s.text)}>100 г</span>
-            <div className={cn(s.plus)}>
-              <svg width="1" height="14" viewBox="0 0 1 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.499999" y2="13.5" stroke="black"/>
+            <a className={cn(s.plus)}>
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line y1="6.5" x2="13" y2="6.5" stroke="black"/>
+                  <line x1="6.5" y1="2.18557e-08" x2="6.5" y2="13" stroke="black"/>
               </svg>
-              <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line y1="1" x2="13" y2="1" stroke="black"/>
-              </svg>
-            </div>
-        </div>
+            </a>
+          </div>
         <span className={cn(s.price)}>{price} р</span>
         <button className={cn(s.cart_button)}>В корзину</button>
       </div>

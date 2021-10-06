@@ -69,12 +69,19 @@
       margin-top: 10px;
       text-align: center;
       font-size: 14px;
-      //line-height: 16px;
       color: rgba(0, 0, 0, 0.38);
       border: 0.2px solid rgba(0, 0, 0, 0.38);
       display: flex;
       justify-content: space-between;
       flex-direction: row;
+
+      .minus, .plus {
+        display: flex;
+        align-items: center;
+        margin-left: 6px;
+        margin-right: 6px;
+        cursor: pointer;
+      }
 
     }
 
@@ -112,9 +119,5 @@
 
 
 }
-
-// .card__img {
-//   height: 100%;
-// }
 
 

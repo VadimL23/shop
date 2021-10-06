@@ -47,12 +47,14 @@ const ProductStore = types
         return el.productsList;
       });
     },
-    getProductById: function (id: number) {
-      //        return self.getAllProducts().find((el)=>el.id == id);
-      //        const result = self.typesOfProduct?.find((el)=>el.productsList.find((product)=>
-      //            product.id == id
-      //            ))
-      //        if (typeof result !== "undefined") {return getSnapshot(result)}
+    getCategoryNameById: function (id: number) {
+      console.log("Запустилась функция поиска имени категории");
+      return self.typesOfProduct.find((el: any)=> id == el.id)?.name;
+    },
+    getProductByIdAndIdCategory: function (id: number, id_category: number) {
+      console.log("Запустилась функция поиска обьекта товара");
+      return self.typesOfProduct?.find((el: any)=> id_category == el.id)?.productsList?.find((el: any)=> id == el.id);
+
     },
   }));
 

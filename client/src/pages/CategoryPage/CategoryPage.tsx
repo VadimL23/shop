@@ -72,17 +72,21 @@ const CategoryPage = observer((props: IProps) => {
                 <div></div>
         }
         <div className={cn(s.page__content)}>
-          {snapshot?.typesOfProduct.length == 0 ? (
-            <Preloader isVisible={true} />
-          ) : id === undefined ? (
-            snapshot?.typesOfProduct.map((el) => (
-              <CategoryCard_2 key={el.id} {...el} />
-            ))
-          ) : (
-            snapshot?.typesOfProduct[+id - 1].productsList.map((el) => (
-              <CategoryCard_2 key={el.id} {...el} />
-            ))
-          )}
+          {snapshot?.typesOfProduct.length == 0 
+            ? ( <Preloader isVisible={true} /> ) 
+            : id === undefined 
+              ? (
+                  snapshot?.typesOfProduct.map((el) => (
+                  <CategoryCard_2 key={el.id} {...el} />
+                    )
+                  )
+                )
+              : (
+                snapshot?.typesOfProduct[+id - 1].productsList.map((el) => (
+                  <CategoryCard_2 key={el.id} {...el} id_category={id} />
+                  ))
+                )
+          }
         </div>
       </div>
     </div>
