@@ -17,6 +17,7 @@ type IProps = {
 const InfoPage = observer((props: any) => {
   const id = props.match.params.id;
   const id_category = props.match.params.id_category;
+  const productsStore = useProductStore();
 
   console.log(props);
   const productStore = useProductStore();
@@ -27,6 +28,13 @@ const InfoPage = observer((props: any) => {
   const productObject: any = productStore.getProductByIdAndIdCategory(id,id_category);
   console.log(categoryName);
   console.log(productObject);
+
+  const addProductToCart = (el: any) => {
+    el.stopPropagation();
+    productsStore.cart.add(props);
+  };
+
+
   return (
     <>
       
@@ -41,6 +49,7 @@ const InfoPage = observer((props: any) => {
           rate={productObject.rate}
           img={productObject.img}
           price={productObject.price}
+          addProductToCart={addProductToCart}
           />
         </div>
         : <div></div>

@@ -104,13 +104,14 @@
       background-color: #99D967;
       vertical-align: middle;
       display:table-cell;
-      border: 1px solid #99D967
-
+      border: 1px solid #99D967;
+      z-index: 200;
     }
 
     .cart_button:hover {  
       color: #99D967;
       background-color: #FFFFFF;
+      z-index: 200;
     
     }
 

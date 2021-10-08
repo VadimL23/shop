@@ -11,6 +11,7 @@ interface IProps {
   rate?: number;
   price?: number;
   img?: any;
+  addProductToCart?: any
 }
 
 // interface IUrl {
@@ -53,7 +54,7 @@ const Product = (props: IProps) => {
           <p className={cn(s.product__count)}>Цена</p>
           <p className={cn(s.price)}>{props.price} р</p>
           <div className={cn(s.buttons_group)}>
-            <button>В корзину</button>
+            <button onClick={props.addProductToCart}>В корзину</button>
             <button>Продолжить покупки</button>
           </div>
           {/* <p className={cn(s.product__count)}>Пищевая ценность</p>

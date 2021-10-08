@@ -18,6 +18,7 @@ type IProps = {
 const BasketPage = observer((props: any) => {
   const productStore = useProductStore();
   const { productList: list } = getSnapshot(productStore.cart);
+  console.log(productStore);
   useScrollBodyTop();
 return (
     <>

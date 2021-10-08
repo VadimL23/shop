@@ -4,6 +4,7 @@ import s from './style.module.scss';
 import { name } from '../CategoryPanel';
 import { observer } from 'mobx-react-lite';
 import { useHistory } from 'react-router-dom';
+import { useProductStore } from 'hooks';
 
 type IProps = {
   onClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void;
@@ -21,11 +22,23 @@ type IProps = {
 
 const CategoryCard_2 = observer((props: IProps) => {
   const history = useHistory();
+  const productsStore = useProductStore();
+
+
   const { id, name, img, price, id_category} = props;
   //const { backPath, change } = useLocationStore();
-  console.log("Тут айди категории" + id_category);
-  console.log("Тут айди товара" + id);
-
+  //console.log("Тут айди категории" + id_category);
+  //console.log("Тут айди товара" + id);
+  
+  const addProductToCart = (el: any) => {
+    //event.preventDefault();
+    el.stopPropagation();
+    //console.log("Срабатывает метод добавления");
+    //console.log(productsStore.cart);
+    //console.log(props);
+    productsStore.cart.add(props);
+    //return false;
+  };
 
   const descriptionCutOff = (text: string): string => {
     if (text.length > 17) {
@@ -63,7 +76,7 @@ const CategoryCard_2 = observer((props: IProps) => {
             </a>
           </div>
         <span className={cn(s.price)}>{price} р</span>
-        <button className={cn(s.cart_button)}>В корзину</button>
+        <button className={cn(s.cart_button)} onClick={addProductToCart}>В корзину</button>
       </div>
     
     </div>
