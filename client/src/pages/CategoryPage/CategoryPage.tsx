@@ -5,8 +5,8 @@ import s from './style.module.scss';
 import { observer } from 'mobx-react-lite';
 import { getType, getSnapshot, onSnapshot } from 'mobx-state-tree';
 import { useProductStore, useLocationStore } from 'hooks';
-import { CategoryPanel_2 } from './components/CategoryPanel_2';
-import { CategoryCard_2 } from './components/CategoryCard_2';
+import { CategoryPanel } from 'components/CategoryPanel';
+import { CategoryCard } from 'components/CategoryCard';
 import { Preloader } from 'components/Preloader';
 import { Location } from 'components/Location';
 import { Divider } from '@material-ui/core';
@@ -23,7 +23,6 @@ type Params = {
 
 const CategoryPage = observer((props: IProps) => {
 
-  //const { getTypesOfProducts } = useProductStore();
   const store = useProductStore();
   const [snapshot, setSnapshot] = useState(getSnapshot(store));
   onSnapshot(store, (sn) => {
@@ -34,7 +33,6 @@ const CategoryPage = observer((props: IProps) => {
   const { typesOfProduct } = snapshot;
 
   const { id } = useParams<Params>();
-  console.log(id);
   function getCategoryNameById (id: any, array: any) {
     if (id) {
       array.forEach((el: any) => {
@@ -48,28 +46,27 @@ const CategoryPage = observer((props: IProps) => {
   }
 
   useEffect(() => {
-    //console.log(`Сработало после создания страницы ${id}`);
     getCategoryNameById(id, typesOfProduct);
-    //getCategoryNameById(id, typesOfProduct);
   })
+  
   return (
     <div className={cn(s.main)} >
       <Location all={snapshot} nameCategory={nameCategory}/>
       <div className={cn(s.page_2)}>
-        {typeof id === 'undefined' ? (
+        {typeof id !== 'undefined' ? (
           <div className={cn(s.panel__content)}>
-            <CategoryPanel_2 nameList={typesOfProduct} />
+            <CategoryPanel nameList={typesOfProduct} />
           </div>
         ) : (
           <div className={cn(s.panel__content)}>
-            <CategoryPanel_2 nameList={typesOfProduct} />
+            <CategoryPanel nameList={typesOfProduct} />     
           </div>
         )}
         {  nameCategory 
               ? 
                 <div className={cn(s.title)}>{nameCategory}</div>
               : 
-                <div></div>
+                null
         }
         <div className={cn(s.page__content)}>
           {snapshot?.typesOfProduct.length == 0 
@@ -77,13 +74,13 @@ const CategoryPage = observer((props: IProps) => {
             : id === undefined 
               ? (
                   snapshot?.typesOfProduct.map((el) => (
-                  <CategoryCard_2 key={el.id} {...el} />
+                  <CategoryCard key={el.id} {...el} />
                     )
                   )
                 )
               : (
                 snapshot?.typesOfProduct[+id - 1].productsList.map((el) => (
-                  <CategoryCard_2 key={el.id} {...el} id_category={id} />
+                  <CategoryCard key={el.id} {...el} id_category={id} />
                   ))
                 )
           }
@@ -95,9 +92,4 @@ const CategoryPage = observer((props: IProps) => {
 
 export { CategoryPage };
 
-//
-//        <ul className={cn(s["panel__subgroup"])}>
-//                           <li className={cn(s.panel__li)}>
-//                               <a href="#">Lorem ipsum.</a>
-//                           </li>
-//                       </ul>
+

@@ -20,24 +20,14 @@ type IProps = {
   id_category?: any;
 };
 
-const CategoryCard_2 = observer((props: IProps) => {
+const CategoryCard = observer((props: IProps) => {
   const history = useHistory();
   const productsStore = useProductStore();
-
-
   const { id, name, img, price, id_category} = props;
-  //const { backPath, change } = useLocationStore();
-  //console.log("Тут айди категории" + id_category);
-  //console.log("Тут айди товара" + id);
   
   const addProductToCart = (el: any) => {
-    //event.preventDefault();
     el.stopPropagation();
-    //console.log("Срабатывает метод добавления");
-    //console.log(productsStore.cart);
-    //console.log(props);
     productsStore.cart.add(props);
-    //return false;
   };
 
   const descriptionCutOff = (text: string): string => {
@@ -83,4 +73,4 @@ const CategoryCard_2 = observer((props: IProps) => {
   );
 });
 
-export { CategoryCard_2 };
+export { CategoryCard };

@@ -15,7 +15,7 @@ type IProps = {
   nameList: name[];
 };
 
-const CategoryPanel_2 = (props: IProps) => {
+const CategoryPanel = (props: IProps) => {
   const { nameList } = props;
   //console.log(nameList);
   return (
@@ -41,4 +41,4 @@ const CategoryPanel_2 = (props: IProps) => {
   );
 };
 
-export { CategoryPanel_2 };
+export { CategoryPanel };
