@@ -14,44 +14,36 @@ type IProps = {
 };
 
 const Location = (props: IProps) => {
-  //console.log(props.all.typesOfProduct);
+ 
   const historiay = useHistory();
   const location = useLocation();
   console.log(location.pathname.split('/'));
   const locationArray: any[] = location.pathname.split('/');
   locationArray.splice(0, 1);
   let namesArray: any[] = [...locationArray];
-  //console.log(locationArray);
-  //console.log(namesArray);
-  namesArray[0] = "Каталог";
-  if (namesArray.length == 2) {
+  console.log(namesArray);
+  console.log(locationArray);
+
+
+  if (namesArray.length == 1) {
+    if (namesArray[0] == "category") {
+      namesArray[0] = "Каталог";
+    } else if (namesArray[0] == "basket"){
+      namesArray[0] = "Корзина";
+    }
+  } else if (namesArray.length == 2) {
     namesArray[0] = "Каталог";
     namesArray[1] = props.nameCategory;
   } else if (namesArray.length == 3) {
     namesArray[1] = props.nameCategory;
     namesArray[2] = props.productName;
   }
-  //console.log(namesArray);
-
-  //const array1 = [ "category", "Орехи", "Миндаль" ];
-  //const array1_numbers = [ "category", "1", "2" ];
-  //const path = array1_numbers.splice()
+  
   function split(arr: string[], index: number) {
     let newArray = [...arr];
     return "/"+newArray.splice(0, (index+1)).join('/');
 
-    // return arr.reduce((summ, el) => {
-    //   if (temp < index) {
-    //     temp++;
-    //     return (summ = summ.concat(el, '/'));
-    //   }
-    //   return summ;
-    // });
   }
-  //console.log(split(array1_numbers, 0));
-  //console.log(split(array1_numbers, 1));
-  //console.log(split(array1_numbers, 2));
-
 
   return (
     <div className={cn(s.location)}>
@@ -90,22 +82,6 @@ const Location = (props: IProps) => {
           )
         }
 
-        {/* {locationArray.length >= 1 ? 
-          locationArray.map((el, index, arr) => (
-          <div className={cn(s.link_block)}>
-          <svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L8.5 10L1 17.5" stroke="black"/>
-          </svg>
-        <Link to={`${split(arr, index)}`} key={index} className={cn(s.link)}>
-          {el 
-            ? <span className={cn(s.link_text)}>{props.nameCategory}</span>
-            : <div></div> 
-          }
-        </Link>
-        </div>
-      )) : ""
-        } */}
-      
       </div>
       
       <a className={cn(s.backLink)} onClick={() => historiay.goBack()}>

@@ -87,7 +87,7 @@ const Footer = (props: IProps) => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className={cn({
           [s.footer__item]: true,
           [s['footer__item--last']]: true,
@@ -95,7 +95,7 @@ const Footer = (props: IProps) => {
       >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione non
         eius, reiciendis
-      </div>
+      </div> */}
     </div>
   );
 };
