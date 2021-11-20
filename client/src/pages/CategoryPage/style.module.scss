@@ -1,21 +1,37 @@
 @import 'styles/style.scss';
-.page {
+
+.main {
+
+  // .back_image {
+  //   //@error: 0 auto;
+  //   position: absolute;
+  //   width: 1610px;
+  //   height: 270px;
+  //   //left: 0px;
+  //   top: 490px;
+  //   //background: rgba(221, 221, 221, 0.5);
+  //   background-image: url(./background_lines.svg);
+  // }
+  .page_2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+
+    .title {
+      margin-top: 81px;
+      margin-left: 43px;
+      font-size: 74px;
+      line-height: 83px;
+      color: #000000;
+    }
+  }
+
+  .page__content {
+  margin: 37px 43px 0 43px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-}
+  //grid-template-rows: repeat(auto-fill, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  grid-gap: 96px 137px;
 
-.panel__content {
-  grid-column: 1 /2;
-  grid-row: 1;
-  border-right: 1px solid red;
-}
-
-.page__content {
-  grid-column: 2 / 4;
-  grid-row: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  flex: 1 0 30%;
+  }
 }

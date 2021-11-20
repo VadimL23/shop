@@ -1,10 +1,11 @@
-import React, { ReactElement, useCallback } from 'react';
+import React, { ReactElement, useCallback, useState } from 'react';
 import s from './style.module.scss';
 import cn from 'classnames';
 import { Card } from 'components/Card';
 import { MainSlider } from 'components/MainSlider';
 import { ProductsSlider } from 'components/ProductsSlider';
 import { CustomCard } from 'components/CustomCard';
+import { CategoryCard } from 'components/CategoryCard';
 import sliderList from 'config/constants/slider';
 import { useStore } from 'hooks';
 import { useProductStore } from 'hooks';
@@ -21,42 +22,29 @@ const MainPage = observer((props: IProps) => {
   const { isAuthenticated } = useStore();
   const productsStore = useProductStore();
   const { typesOfProduct } = getSnapshot(productsStore);
-
+  const store = useProductStore();
+  const [snapshot, setSnapshot] = useState(getSnapshot(store)); 
+    
   const Cards = useCallback(() => {
-    return typesOfProduct[0].productsList.map((el) => {
-      const { id, name, rate, price, img, quantity } = el;
-      return <CustomCard key={el.id} {...el} />;
-    });
-  }, [typesOfProduct]);
+   return    snapshot?.typesOfProduct[0]?.productsList.map((el,i) => (
+                  <CategoryCard key={el.id} {...el} id_category={i} />
+                  ))
+    }
+  , [typesOfProduct]);
 
   return (
     <>
       <MainSlider sliderList={sliderList} />
+ 
+      <div className={s.product__list}>{Cards()}</div>
 
-      {typesOfProduct.length == 0 ? (
-        <Preloader isVisible={true} />
-      ) : (
-        <>
-          <ProductsSlider productList={typesOfProduct[0].productsList}>
-            {typesOfProduct[0].name}
-          </ProductsSlider>
-
-          <ProductsSlider productList={typesOfProduct[1].productsList}>
-            {typesOfProduct[1].name}
-          </ProductsSlider>
-        </>
-      )}
-
-      {typesOfProduct.length == 0 ? (
-        <Preloader isVisible={true} />
-      ) : (
-        <React.Fragment>
-          <h2 className={s.product__list__title}>{typesOfProduct[0].name}</h2>
-          <div className={s.product__list}>{Cards()}</div>
-        </React.Fragment>
-      )}
     </>
   );
 });
 
 export { MainPage };
+
+
+ 
+
+

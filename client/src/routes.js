@@ -18,10 +18,17 @@ export const useRoutes = (isAuthenticated) => {
         <Route path={route.BASKET_ROUTE} component={BasketPage} exact />
         <Route path={route.INFO_ROUTE + '/:id'} component={InfoPage} exact />
         <Route path={route.ADMIN_ROUTE} component={AdminPage} exact />
-        <Route path={route.CATEGORY_ROUTE} component={CategoryPage} exact />
-        <Route
-          path={route.CATEGORY_ROUTE + '/:id'}
+        <Route path={route.CATEGORY_ROUTE} component={CategoryPage} exact>
+          <Route path="/new" component={MainPage} exact></Route>
+          <Route path="/sh" component={MainPage} exact></Route>
+        </Route>
+        <Route path={route.CATEGORY_ROUTE + '/:id'}
           component={CategoryPage}
+          exact
+        />
+        <Route
+          path={route.CATEGORY_ROUTE + '/:id_category' + '/:id'}
+          component={InfoPage}
           exact
         />
         <Route path={route.DELIVERY_ROUTE} component={DeliveryPage} exact />
@@ -34,13 +41,17 @@ export const useRoutes = (isAuthenticated) => {
       <Switch>
         <Route path={route.MAIN_ROUTE} component={MainPage} exact />
         <Route path={route.BASKET_ROUTE} component={BasketPage} exact />
-        <Route path={route.INFO_ROUTE + '/:id'} component={InfoPage} exact />
+        {/* <Route path={route.INFO_ROUTE + '/:id'} component={InfoPage} exact /> */}
         <Route path={route.LOGIN_ROUTE} component={AuthPage} exact />
         <Route path={route.REGISTRATION_ROUTE} component={AuthPage} exact />
         <Route path={route.CATEGORY_ROUTE} component={CategoryPage} exact />
-        <Route
-          path={route.CATEGORY_ROUTE + '/:id'}
+        <Route path={route.CATEGORY_ROUTE + '/:id'}
           component={CategoryPage}
+          exact
+        />
+        <Route
+          path={route.CATEGORY_ROUTE + '/:id_category' + '/:id'}
+          component={InfoPage}
           exact
         />
         <Route path={route.DELIVERY_ROUTE} component={DeliveryPage} exact />

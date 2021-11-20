@@ -24,6 +24,10 @@ const Navbar = observer((props: IProps) => {
     <div className={cn(s.menu__wrapper)}>
       <div className={cn(s.nav, s.contain)}>
         <Avatar />
+        <Navmenu
+        isVisibleModal={isVisibleModal}
+        setVisibleModal={setVisibleModal}
+      />
         <nav>
           <ul className={cn(s.nav__links)}>
             <li className={cn(s.nav__item)}>
@@ -99,10 +103,7 @@ const Navbar = observer((props: IProps) => {
           </ul>
         </nav>
       </div>
-      <Navmenu
-        isVisibleModal={isVisibleModal}
-        setVisibleModal={setVisibleModal}
-      />
+ 
     </div>
   );
 });

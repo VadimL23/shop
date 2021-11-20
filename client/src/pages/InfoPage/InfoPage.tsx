@@ -16,20 +16,44 @@ type IProps = {
 
 const InfoPage = observer((props: any) => {
   const id = props.match.params.id;
+  const id_category = props.match.params.id_category;
+  const productsStore = useProductStore();
+
+  console.log(props);
   const productStore = useProductStore();
   //  const {id, name, quantity, price, rate} =  productStore.getProductById(13);
-  console.log(`product `, productStore.getAllProducts());
+  //const productsList = productStore.getTypesOfProducts();
+  //console.log(productsList);
+  const categoryName: any = productStore.getCategoryNameById(id_category);
+  const productObject: any = productStore.getProductByIdAndIdCategory(id,id_category);
+  console.log(categoryName);
+  console.log(productObject);
+
+  const addProductToCart = (el: any) => {
+    el.stopPropagation();
+    productsStore.cart.add(props);
+  };
+
 
   return (
     <>
-      <Location />
-      <Product
-        id={id}
-        title={product_data.title}
-        description={product_data.description}
-        rate={product_data.rate}
-        img={product_data.img}
-      />
+      
+      {
+        productObject ?
+        <div>
+          <Location nameCategory={categoryName} productName={productObject.name}/>
+          <Product
+          id={productObject.id}
+          title={productObject.name}
+          description={productObject.description}
+          rate={productObject.rate}
+          img={productObject.img}
+          price={productObject.price}
+          addProductToCart={addProductToCart}
+          />
+        </div>
+        : <div></div>
+      }
     </>
   );
 });

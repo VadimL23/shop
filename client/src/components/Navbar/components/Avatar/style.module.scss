@@ -1,29 +1,50 @@
 @import '../../../../styles/style.scss';
 
 .avatar_block {
-  height: 40px;
-  width: 200px;
+  height: 43px;
+  width: 177px;
   color: black;
-  font-size: 2.8rem;
+  border:1px solid black;
+  font-size: 1.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  position: relative;
+  text-transform: uppercase;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+    margin-left: 2.15rem;
+    
   @include hands {
     & {
-      font-size: 2.4rem;
+      font-size: 1.6rem;
     }
   }
 
   @include phone {
     & {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
   }
 }
 .avatar_img {
-  margin-left: 2px;
-  margin-right: 2px;
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
+  display: block;
+  position: absolute;
+  left:50%;
+  top:-2px;
+  transform: translate3d(-50%,0,0);
+}
+
+.avatar_box{
+    position: absolute;
+    top:-20%;
+    left:50%;
+    display: block;
+    width: 74px;
+    height: 24px;
+    background-color: white;
+    z-index: 100;
+    transform: translate3d(-50%,-20%,0);
 }

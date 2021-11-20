@@ -8,6 +8,12 @@ import './style.scss';
 import { useProductStore } from 'hooks';
 import { getSnapshot } from 'mobx-state-tree';
 import { observer } from 'mobx-react-lite';
+import first__img from './img/first.jpg';
+import { Link } from 'react-router-dom';
+import * as route from 'config/const';
+import vawe from "assets/png/wave/wave.png";
+import nut from "assets/png/mainslider/nut.png";
+
 
 interface IProps {
   children?: React.ReactElement[];
@@ -34,22 +40,31 @@ const MainSlider = observer((props: IProps) => {
               <div
                 className={cn(s['slider_item_textbox'])}
                 style={{
-                  backgroundColor: `${el.background}`,
-                  color: `${el.color}`,
+                 background: `${el.background}`,
+                 color: `${el.color}`,
                 }}
               >
                 <span className={cn(s['slider_item-title'])}>{el.title}</span>
                 <span className={cn(s['slider_item-subtitle'])}>
                   {el.subtitle}
                 </span>
+                <Link to={route.CATEGORY_ROUTE}
+                className={cn(s.slider__btn)}
+                >Перейти к продуктам</Link>
               </div>
               <h3 className={cn(s['slider_img_box'])}>
-                <img className={cn(s.slider__img)} src={el.img} />
+                <img className={cn(s.slider__img)} src={first__img} />
               </h3>
+                  
             </div>
           );
         })}
       </Slider>
+      <img className={cn(s.wave__img)}
+      src={vawe} alt="wave"/>
+      <img src={nut} alt="nut"
+      className={cn(s.nut__img)}
+      />
     </div>
   );
 });

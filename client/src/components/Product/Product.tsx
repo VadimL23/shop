@@ -5,12 +5,13 @@ import star_icon from 'assets/svg/star_icon.svg';
 
 interface IProps {
   //isAuthenticated:boolean;
-  id: number;
-  title: string;
-  description: string;
-  rate: number;
-  // comments:string,
-  img: any;
+  id?: number;
+  title?: string;
+  description?: string;
+  rate?: number;
+  price?: number;
+  img?: any;
+  addProductToCart?: any
 }
 
 // interface IUrl {
@@ -18,6 +19,7 @@ interface IProps {
 // }
 
 const Product = (props: IProps) => {
+  console.log(props);
   return (
     <>
       <div className={cn(s.product)}>
@@ -30,58 +32,36 @@ const Product = (props: IProps) => {
             ))}
           </div>
 
-          <div className={cn(s.product__info_mobile)}>
-            <p className={cn(s.product__partNumber)}>Арт. {props.id}</p>
-            <p className={cn(s.product__title)}>{props.title}</p>
-            <div className={cn(s.rating)}>
-              <div className={cn(s.stars)}>
-                <img src={star_icon} className={cn(s.icon_img)} />
-              </div>
-              <div className={cn(s.stars)}>
-                <img src={star_icon} className={cn(s.icon_img)} />
-              </div>
-              <div className={cn(s.stars)}>
-                <img src={star_icon} className={cn(s.icon_img)} />
-              </div>
-              <div className={cn(s.stars)}>
-                <img src={star_icon} className={cn(s.icon_img)} />
-              </div>
-              <div className={cn(s.stars)}>
-                <img src={star_icon} className={cn(s.icon_img)} />
-              </div>
-              <div className={cn(s.rate)}>{props.rate}</div>
-            </div>
-            <p className={cn(s.product__size)}>100 гр</p>
-            <p className={cn(s.price)}>150 рублей</p>
-            <button>Добавить в корзину</button>
-          </div>
-
-          <div className={cn(s.product__discription)}>{props.description}</div>
         </div>
         <div className={cn(s.product__info)}>
-          <p className={cn(s.product__partNumber)}>Арт. {props.id}</p>
           <p className={cn(s.product__title)}>{props.title}</p>
-          <div className={cn(s.rating)}>
-            <div className={cn(s.stars)}>
-              <img src={star_icon} className={cn(s.icon_img)} />
-            </div>
-            <div className={cn(s.stars)}>
-              <img src={star_icon} className={cn(s.icon_img)} />
-            </div>
-            <div className={cn(s.stars)}>
-              <img src={star_icon} className={cn(s.icon_img)} />
-            </div>
-            <div className={cn(s.stars)}>
-              <img src={star_icon} className={cn(s.icon_img)} />
-            </div>
-            <div className={cn(s.stars)}>
-              <img src={star_icon} className={cn(s.icon_img)} />
-            </div>
-            <div className={cn(s.rate)}>{props.rate}</div>
+          <div className={cn(s.product__discription)}>{props.description}</div>
+          <p className={cn(s.product__count)}>Кол-во</p>
+          <div className={cn(s.size)}>
+            <a className={cn(s.minus)}>
+              <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line y1="1" x2="13" y2="1" stroke="black"/>
+              </svg> 
+            </a>
+            <span className={cn(s.text)}>100 г</span>
+            <a className={cn(s.plus)}>
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line y1="6.5" x2="13" y2="6.5" stroke="black"/>
+                  <line x1="6.5" y1="2.18557e-08" x2="6.5" y2="13" stroke="black"/>
+              </svg>
+            </a>
           </div>
-          <p className={cn(s.product__size)}>100 гр</p>
-          <p className={cn(s.price)}>150 рублей</p>
-          <button>Добавить в корзину</button>
+          <p className={cn(s.product__count)}>Цена</p>
+          <p className={cn(s.price)}>{props.price} р</p>
+          <div className={cn(s.buttons_group)}>
+            <button onClick={props.addProductToCart}>В корзину</button>
+            <button>Продолжить покупки</button>
+          </div>
+          {/* <p className={cn(s.product__count)}>Пищевая ценность</p>
+          <div className={cn(s.product_values)}>
+            В будущем разместить дополнительная информация про продукты
+          </div> */}
+        
         </div>
       </div>
     </>

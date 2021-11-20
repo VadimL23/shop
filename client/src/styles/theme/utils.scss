@@ -9,11 +9,11 @@
 }
 
 .container {
-  max-width: 1200px !important;
+  max-width: 1600px !important;
   display: block;
   margin: 0 auto;
   padding: 0 15px;
-  margin-top: 18rem;
+  margin-top: 100px;
 
   @include hands {
     max-width: 640px !important;

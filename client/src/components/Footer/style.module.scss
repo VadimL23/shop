@@ -5,11 +5,11 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  margin-top: 5rem;
+  //margin-top: 5rem;
 }
 
 .footer__item {
-  background-color: $color-footer;
+  //background-color: $color-footer;
   display: flex;
   align-self: center;
   width: 100%;
@@ -24,6 +24,7 @@
   margin-top: 5rem;
   max-width: 1170px;
   justify-content: center;
+  background-color: #DCF6C7;
 
   @include hands {
     flex-wrap: wrap;
@@ -34,7 +35,7 @@
   height: 4rem;
   padding: 1rem 0;
   justify-content: center;
-  background-color: $color-footer-bottom;
+  //background-color: $color-footer-bottom;
   max-width: inherit;
   font-size: 1.8rem;
   margin-top: 0;
@@ -117,7 +118,8 @@
 
 .footer_btn {
   padding: 1rem 1rem;
-  background-color: lighten($btn_order-color, 13%);
+  //background-color: lighten($btn_order-color, 13%);
+  background-color: #7DC048;
   margin: 0 auto;
   transition: all 0.2s ease-out;
   margin-top: 1rem;

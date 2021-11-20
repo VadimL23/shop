@@ -56,6 +56,16 @@ const CategoryBrand = sequelize.define('type_brand', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 });
 
+const MainSlider = sequelize.define("main_slider",{
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  img: { type: DataTypes.STRING, allowNull: false },
+  title: { type: DataTypes.STRING, allowNull: false },
+  subtitle: { type: DataTypes.STRING, allowNull: false },
+  background: { type: DataTypes.STRING, allowNull: false },
+  color: { type: DataTypes.STRING, allowNull: false },
+    
+});
+
 User.hasOne(CartProduct);
 CartProduct.belongsTo(User);
 
@@ -90,4 +100,5 @@ module.exports = {
   Rating,
   CategoryBrand,
   ProductInfo,
+  MainSlider
 };
